@@ -10,6 +10,7 @@ import { useAppSelector } from "@/Redux/hooks";
 import { wrapper } from "@/Redux/store";
 
 function App({ Component, pageProps }: AppProps) {
+    const { store, props } = wrapper.useWrappedStore(pageProps);
     const isLoading = useAppSelector(store => store.loadingSlice);
 
     return (
@@ -20,7 +21,7 @@ function App({ Component, pageProps }: AppProps) {
                 enableSystem
                 disableTransitionOnChange
             >
-                <Component {...pageProps} />
+                <Component {...props} />
             </ThemeProvider>
             <ToastContainer
                 toastStyle={{
