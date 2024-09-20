@@ -76,12 +76,11 @@ const SignIn = () => {
             const responseData: { message: string; success?: boolean; error?: boolean } =
                 await response.json();
 
-            console.log("UserForm", responseData)
             dispatch(setLoading(false));
 
             if (response.ok) {
-                toast.success(responseData.message || "Account created successfully!");
                 router.push('/login')
+                toast.success(responseData.message || "Account created successfully!");
             } else {
                 toast.error(responseData.message || "Something went wrong!");
             }
