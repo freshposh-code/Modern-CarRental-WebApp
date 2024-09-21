@@ -38,6 +38,7 @@ const config: Config = {
 				blue: {
 					"100": "#E4ECFF",
 				},
+				darkBackground: "#18181b",
 				purple: "#CBACF9",
 				border: "hsl(var(--border))",
 				input: "hsl(var(--input))",
