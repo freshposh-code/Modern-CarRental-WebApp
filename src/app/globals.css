@@ -10,6 +10,11 @@
   box-sizing: border-box;
 }
 
+.hero-gradient {
+  background: linear-gradient(180deg, #8291ff6e 10%, #3950ffa4, #4258ffe1 80%);
+  filter: contrast(1.2);
+}
+
 body {
   text-decoration: none;
   list-style: none;
