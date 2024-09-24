@@ -80,9 +80,9 @@ const login = () => {
     return (
         <AuroraBackground>
             <Link href='/'>
-                <div className='flex items-center gap-2 absolute top-5 left-5'>
+                <div className='flex items-center gap-2 absolute sm:top-5 top-3 sm:left-5 left-3'>
                     <div className="border-4 border-blue-700 sm:size-12 size-8 rounded-full" />
-                    <h1 className='font-extrabold sm:text-3xl text-lg text-black-100 dark:text-slate-100'>Rivent</h1>
+                    <h1 className='font-extrabold sm:text-3xl text-2xl text-black-100 dark:text-slate-100'>Rivent</h1>
                 </div>
             </Link>
             <motion.div
