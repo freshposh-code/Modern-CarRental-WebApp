@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/Theme/theme-provider";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import SessionWrapper from "@/lib/SessionWrapper";
 
 export const metadata: Metadata = {
   title: "Car Rental",
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="dark:bg-darkBackground">
+        <SessionWrapper>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -25,6 +27,7 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
+        </SessionWrapper>
         <ToastContainer
           position="top-center"
           toastStyle={{
