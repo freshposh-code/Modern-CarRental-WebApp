@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import { AuroraBackground } from "../components/ui/aurora-background";
 import Image from "next/image";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
@@ -14,6 +14,8 @@ import { useDispatch } from "react-redux";
 import { setLoading } from "@/Redux/features/LoadingSlice";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
+import { signIn, useSession } from "next-auth/react";
+import Loader from "@/components/Loader";
 
 interface FormData {
     name: string;
@@ -77,6 +79,18 @@ const login = () => {
         }
     }
 
+    const { data: session } = useSession();
+  
+    useEffect(() => {
+      if (session) {
+        router.push('/'); 
+      }
+    }, [session, router]);
+
+    if (session) {
+        return <Loader />;
+      }
+
     return (
         <AuroraBackground>
             <Link href='/'>
@@ -129,7 +143,7 @@ const login = () => {
                                 <div className="border-b-2 border-black-200 dark:border-white-200 w-32" />
                             </div>
 
-                            <span className="border-2 dark:border-slate-200 w-full flex justify-center items-center py-1 my-2 rounded-[22px] gap-1 cursor-pointer">
+                            <span className="border-2 dark:border-slate-200 w-full flex justify-center items-center py-1 my-2 rounded-[22px] gap-1 cursor-pointer" onClick={() => signIn('google')}>
                                 <FcGoogle className="text-4xl cursor-pointer" />
                                 <p className="text-blue-600 dark:text-blue-500 font-bold">Sign In using Google</p>
                             </span>
