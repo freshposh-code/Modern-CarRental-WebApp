@@ -1,11 +1,16 @@
-"use client";
+// SessionWrapper.tsx
+'use client';
 
-import { SessionProvider } from "next-auth/react"
+import { SessionProvider } from 'next-auth/react';
+import { ReactNode } from 'react';
 
-const SessionWrapper = ({children}: {children: React.ReactNode}) => {
-  return (
-    <SessionProvider>{children}</SessionProvider>
-  )
+interface Props {
+  children: ReactNode;
+  session?: any;
 }
 
-export default SessionWrapper
+const SessionWrapper = ({ children, session }: Props) => {
+  return <SessionProvider session={session}>{children}</SessionProvider>;
+};
+
+export default SessionWrapper;
