@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="dark:bg-darkBackground">
-        <SessionWrapper>
+      <SessionWrapper>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -27,7 +27,7 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
-        </SessionWrapper>
+      </SessionWrapper>
         <ToastContainer
           position="top-center"
           toastStyle={{

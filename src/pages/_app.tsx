@@ -8,13 +8,15 @@ import 'react-toastify/dist/ReactToastify.css';
 import Loader from "@/components/Loader";
 import { useAppSelector } from "@/Redux/hooks";
 import { wrapper } from "@/Redux/store";
+import SessionWrapper from "@/lib/SessionWrapper";
 
-function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     const { store, props } = wrapper.useWrappedStore(pageProps);
     const isLoading = useAppSelector(store => store.loadingSlice);
 
     return (
         <>
+        <SessionWrapper session={session}>
             <ThemeProvider
                 attribute="class"
                 defaultTheme="system"
@@ -31,6 +33,7 @@ function App({ Component, pageProps }: AppProps) {
                     fontSize: '14px',
                 }}
             />
+            </SessionWrapper>
             {isLoading && <Loader />}
         </>
     );

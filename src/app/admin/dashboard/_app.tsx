@@ -1,8 +1,9 @@
+import { wrapper } from '@/Redux/store';
 import { ThemeProvider } from '@/Theme/theme-provider'
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function _app({ children }: { children: React.ReactNode }) {
+function App({ children }: { children: React.ReactNode }) {
     return (
         <div>
             <ThemeProvider
@@ -13,7 +14,6 @@ export default function _app({ children }: { children: React.ReactNode }) {
             >
                 {children}
             </ThemeProvider>
-
             <ToastContainer
                 position="top-center"
                 toastStyle={{
@@ -26,3 +26,5 @@ export default function _app({ children }: { children: React.ReactNode }) {
         </div>
     )
 }
+
+export default wrapper.withRedux(App);
