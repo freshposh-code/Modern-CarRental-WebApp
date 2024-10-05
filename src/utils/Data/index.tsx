@@ -1,7 +1,5 @@
+import { MdDashboard } from "react-icons/md";
 import { PiCarFill } from "react-icons/pi";
-import {
-    IconBrandTabler,
-  } from "@tabler/icons-react";
 
 export const navbar = [
     {
@@ -22,7 +20,7 @@ export const links = [
     {
       label: "Dashboard",
       href: "/admin/dashboard",
-      icon:  <IconBrandTabler className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+      icon:  <MdDashboard className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
     
     },
     {

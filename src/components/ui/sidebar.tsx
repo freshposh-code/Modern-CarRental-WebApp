@@ -3,8 +3,8 @@ import { cn } from "@/lib/utils";
 import Link, { LinkProps } from "next/link";
 import React, { useState, createContext, useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { IconMenu2, IconX } from "@tabler/icons-react";
 import { RiMenu3Fill } from "react-icons/ri";
+import { MdOutlineCancel } from "react-icons/md";
 
 interface Links {
   label: string;
@@ -143,10 +143,10 @@ export const MobileSidebar = ({
               )}
             >
               <div
-                className="absolute right-10 top-10 z-50 text-neutral-800 dark:text-neutral-200"
+                className="absolute right-10 top-10 z-50 text-neutral-800 dark:text-neutral-200 text-2xl"
                 onClick={() => setOpen(!open)}
               >
-                <IconX />
+                <MdOutlineCancel />
               </div>
               {children}
             </motion.div>
