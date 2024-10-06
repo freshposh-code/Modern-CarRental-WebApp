@@ -10,6 +10,27 @@
   box-sizing: border-box;
 }
 
+/* The entire scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* The scrollbar track */
+::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+/* The scrollbar handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 8px;
+}
+
+/* The scrollbar handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #434343;
+}
+
 .hero-gradient {
   background: linear-gradient(180deg, #8291ff6e 10%, #3950ffa4, #4258ffe1 80%);
   filter: contrast(1.2);
@@ -52,6 +73,11 @@ body {
   animation: rotationBack 1s linear infinite;
   transform-origin: center center;
 }
+
+tr,td,th {
+  padding: 15px;
+}
+
 
 @keyframes rotation {
   0% {
@@ -137,5 +163,29 @@ body {
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@media (max-width: 868px) {
+  .table-responsive thead {
+    display: none;
+  }
+
+  .table-responsive tr,td {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    text-align: right;
+  }
+
+  .table-responsive td::before {
+    content: attr(label-as);
+    position: absolute;
+    top: 1;
+    right: 1;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row-reverse;
   }
 }
