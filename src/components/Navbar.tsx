@@ -21,7 +21,7 @@ export default function Navbar() {
     const { data: session } = useSession()
 
     const logout = async () => {
-        signOut({callbackUrl: '/login'})
+        signOut({ callbackUrl: '/auth/login'});
         try {
             const response = await fetch('/api/userLogout')
             const userResponse = await response.json()
