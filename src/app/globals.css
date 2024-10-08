@@ -178,14 +178,12 @@ tr,td,th {
     padding: 10px;
     text-align: right;
   }
-
+  
   .table-responsive td::before {
     content: attr(label-as);
     position: absolute;
     top: 1;
     right: 1;
     font-weight: bold;
-    display: flex;
-    flex-direction: row-reverse;
   }
 }
