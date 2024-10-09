@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux';
 import { setLoading } from '@/Redux/features/LoadingSlice';
 import { FaUsers } from "react-icons/fa";
 
-const page = () => {
+const Page = () => {
 
 interface User {
     _id: string;
@@ -112,4 +112,4 @@ interface User {
     )
 }
 
-export default page
+export default Page
