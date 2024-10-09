@@ -1,18 +1,21 @@
 import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
-import { MongoDBAdapter } from '@next-auth/mongodb-adapter';
+import { MongoDBAdapter } from '@auth/mongodb-adapter';
 import clientPromise from '@/server/nextAuthConnect';
+import { DateTime } from 'luxon';
 
 declare module 'next-auth' {
   interface Session {
     user: {
       id: string;
       role: string;
+      createdAt?: string;
     };
   }
 
   interface User {
     role?: string;
+    createdAt?: string;
   }
 }
 
@@ -20,7 +23,7 @@ export default NextAuth({
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET! ,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
   ],
   adapter: MongoDBAdapter(clientPromise),
@@ -28,18 +31,25 @@ export default NextAuth({
   callbacks: {
     async signIn({ user, account }) {
       if (account?.provider === 'google' && !user.role) {
-        user.role = 'GENERAL';
+        if (!user.createdAt) {
+          user.createdAt = DateTime.now().toISO();
+        }
+        if (!user.role) {
+          user.role = 'GENERAL';
+        }
       }
       return true;
     },
     async session({ session, user }) {
-      session.user = { id: user.id, role: user.role || 'GENERAL' };
+      session.user = { id: user.id, role: user.role || 'GENERAL',
+        createdAt: user.createdAt,
+       };
       return session;
     },
   },
   
   pages: {
     signIn: '/auth/signin',
-    signOut: '/auth/signout',
+    signOut: '/auth/login',
   },
 });
