@@ -17,11 +17,10 @@ import { navbar } from '@/utils/Data';
 
 export default function Navbar() {
     const { user, setUser } = useUserContext();
-    const [open, setOpen] = useState(false)
-    const { data: session } = useSession()
+    const [open, setOpen] = useState(false);
+    const { data: session } = useSession();
 
     const logout = async () => {
-        signOut({ callbackUrl: '/auth/login'});
         try {
             const response = await fetch('/api/userLogout')
             const userResponse = await response.json()
@@ -62,7 +61,7 @@ export default function Navbar() {
                     </div>
 
                     {(user || session) ? (
-                        <button className='bg-black dark:bg-zinc-50 dark:text-black-100 text-white rounded-[33px] py-3 px-5 font-bold text-lg' onClick={logout}>Logout</button>
+                        <button className='bg-black dark:bg-zinc-50 dark:text-black-100 text-white rounded-[33px] py-3 px-5 font-bold text-lg' onClick={() => {logout(); signOut({ callbackUrl: '/auth/login'});}}>Logout</button>
 
                     )
                         :
