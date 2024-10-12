@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { MdDashboard } from "react-icons/md";
 import { PiCarFill } from "react-icons/pi";
 
@@ -30,3 +31,24 @@ export const links = [
     
     },
   ];
+
+  export const displaylogo = [ 
+    {
+      logo: '/honda.png'
+    },
+    {
+        logo: '/Audi-Logo.png'
+    },
+    {
+        logo: '/toyota.png'
+    },
+    {
+        logo: '/bently1.png'
+    },
+    {
+      logo: '/Hyundai-Logo.png'
+    },
+    {
+      logo: '/lexus.png'
+    },
+  ]
