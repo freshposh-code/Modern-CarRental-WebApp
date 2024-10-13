@@ -61,7 +61,7 @@ export default function Navbar() {
                     </div>
 
                     {(user || session) ? (
-                        <button className='bg-black dark:bg-zinc-50 dark:text-black-100 text-white rounded-[33px] py-3 px-5 font-bold text-lg' onClick={() => {logout(); signOut({ callbackUrl: '/auth/login'});}}>Logout</button>
+                        <button className='bg-black dark:bg-zinc-50 dark:text-black-100 text-white rounded-[33px] py-3 px-5 font-bold text-lg' onClick={() => {logout(); signOut({ callbackUrl: '/login'});}}>Logout</button>
 
                     )
                         :
@@ -98,7 +98,7 @@ export default function Navbar() {
                         </div>
 
                         {(user || session) ? (
-                            <button className='bg-black dark:bg-zinc-50 dark:text-black-100 text-white rounded-[33px] py-3 px-5 font-bold text-lg' onClick={logout}>Logout</button>
+                            <button className='bg-black dark:bg-zinc-50 dark:text-black-100 text-white rounded-[33px] py-3 px-5 font-bold text-lg' onClick={() => {logout(); signOut({ callbackUrl: '/login'});}}>Logout</button>
                         )
                             :
                             (
