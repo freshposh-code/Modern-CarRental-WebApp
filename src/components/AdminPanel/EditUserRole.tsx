@@ -60,7 +60,7 @@ const EditUserRole = ({onClose, callFunc, _id, name, email, role}: roleEdit) => 
 
 
   return (
-    <section className='w-screen min-h-screen bg-white/50 dark:bg-black/50 flex justify-center items-center inset-0 absolute font-serif'>
+    <section className='w-screen min-h-screen bg-white/50 dark:bg-black/50 flex justify-center items-center inset-0 absolute font-serif z-[2000]'>
       <div className='bg-white-100/75 dark:bg-black-200 shadow-md p-4 w-full max-w-sm rounded-md'>
 
    <button className='block ml-auto text-xl' onClick={onClose}>
