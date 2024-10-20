@@ -38,7 +38,7 @@ export const FileUpload = ({
     handleDelete: (index: number) => void;
   }) => {
     const fileInputRef = useRef<HTMLInputElement>(null);
-  
+    
     const handleClick = () => {
       fileInputRef.current?.click();
     };
