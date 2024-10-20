@@ -13,10 +13,9 @@ const VaultSchema = new mongoose.Schema({
         type: String,
         require: true 
     },
-    carImage: {
-        type: String,
-        require: true
-    },
+    
+    carImage: [] ,
+
     capacity: {
         type: String,
         require: true 
@@ -30,7 +29,7 @@ const VaultSchema = new mongoose.Schema({
         require: true 
     },
     price: {
-        type: String,
+        type: Number,
         require: true 
     },
     description: {
