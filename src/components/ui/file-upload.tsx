@@ -65,9 +65,9 @@ export const FileUpload = ({
             ref={fileInputRef}
             id="file-upload-handle"
             type="file"
+             name="file-upload"
             onChange={handleOnChange}
             className="hidden"
-            required
           />
           <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,white,transparent)]">
             <GridPattern />
