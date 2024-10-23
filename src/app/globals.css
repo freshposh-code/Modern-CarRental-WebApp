@@ -78,6 +78,10 @@ tr,td,th {
   padding: 15px;
 }
 
+.blur-effect-theme {
+  @apply bg-white/50 dark:bg-black/50 bg-clip-padding backdrop-filter backdrop-blur bg-opacity-50 opacity-100 z-[100] shadow-sm shadow-slate-100 transition-all duration-300;
+}
+
 
 @keyframes rotation {
   0% {
