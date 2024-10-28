@@ -49,7 +49,7 @@ export default NextAuth({
   },
   
   pages: {
-    signIn: '/auth/signin',
-    signOut: '/auth/login',
+    signIn: '/auth/signIn',
+    signOut: '/login',
   },
 });
