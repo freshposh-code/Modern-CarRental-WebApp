@@ -10,6 +10,7 @@ const DeleteModal = ({onClose, callFunc, Data}: {onClose: () => void; callFunc: 
     try {
       dispatch(setLoading(true));
 
+      console.log(`Deleting item with ID: ${Data}`);
       const deleteVault = await fetch(`/api/deleteVaultCars/${Data}`, {
         method: 'DELETE',
         credentials: 'include',
@@ -26,7 +27,9 @@ const DeleteModal = ({onClose, callFunc, Data}: {onClose: () => void; callFunc: 
         toast.error(response.message)
       }
     } catch (error) {
-      console.log(error)
+      dispatch(setLoading(false));
+      toast.error("An error occurred while deleting.");
+      console.error("Delete error:", error);
     }
   }
   return (
