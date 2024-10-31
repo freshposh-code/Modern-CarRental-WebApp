@@ -12,6 +12,7 @@ import { toast } from 'react-toastify';
 
 interface upload {
     onClose: () => void;
+    fetchCars: () => void;
 }
 
 interface FormData {
@@ -26,15 +27,15 @@ interface FormData {
     description: string,
 }
 
-const UploadCar = ({onClose}: upload) => {
+const UploadCar = ({onClose, fetchCars}: upload) => {
   const [data, setData] = useState<FormData>({
     carName: '',
-    carType: '',
-    category: '',         
+    carType: CarTypes[0]?.value || '',   
+    category: categories[0]?.value || '',
     carImage: [],
-    capacity: '',
-    transmission: '',
-    passengers: '',
+    capacity: fuelCapacities[0]?.value || '', 
+    transmission: transmission[0]?.value || '', 
+    passengers: passengers[0]?.value || '', 
     price: '',
     description: '',
   });
@@ -100,6 +101,7 @@ const UploadCar = ({onClose}: upload) => {
 
           if(dataResponse.success) {
             toast.success(dataResponse.message);
+            fetchCars();
             onClose();
           }
 
