@@ -104,10 +104,9 @@ export const links = [
     { id: 9, type: "pickup", value: "pickup" },
     { id: 10, type: "sedan", value: "sedan" },
     { id: 11, type: "sport", value: "sport" },
-    { id: 12, type: "sports car", value: "sportscar" },
-    { id: 13, type: "suv", value: "suv" },
-    { id: 14, type: "supercar", value: "supercar" },
-    { id: 15, type: "truck", value: "truck" }
+    { id: 12, type: "suv", value: "suv" },
+    { id: 13, type: "supercar", value: "supercar" },
+    { id: 14, type: "truck", value: "truck" }
   ];
   
 
