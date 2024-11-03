@@ -3,6 +3,7 @@
 import DisplayLogo from "@/components/DisplayLogo";
 import HeroSection from "@/components/HeroSection";
 import Navbar from "@/components/Navbar";
+import PopularSection from "@/components/PopularSection";
 
 export default function Home() {
   return (
@@ -13,6 +14,8 @@ export default function Home() {
       </div>
       <div className="md:px-16 px-6 xl:mt-[10rem] mt-0">
           <DisplayLogo />
+
+          <PopularSection title='Our Popular Car' desc='Enjoy exclusive deals and the best prices for satisfying travel packages. We offer the best value for everyday adventure.' />
           </div>
     </>
   )
