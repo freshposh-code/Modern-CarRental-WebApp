@@ -31,6 +31,11 @@
     background: #434343;
 }
 
+/**scrollbar hidden****/
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 .hero-gradient {
   background: linear-gradient(180deg, #8291ff6e 10%, #3950ffa4, #4258ffe1 80%);
   filter: contrast(1.2);
