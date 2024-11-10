@@ -26,7 +26,7 @@ export default function HeroSection() {
                     whileInView="show"
                     variants={fadeIn('down', 'tween', 0.70, 0.75)}
                     viewport={{once: true, amount: 0.25}}
-                    className='bg-white dark:bg-zinc-800 w-fit flex xl:flex-row flex-col justify-center items-center m-auto my-7 gap-10 p-7 rounded-[50px]'>
+                    className='bg-white dark:bg-zinc-900 w-fit flex xl:flex-row flex-col justify-center items-center m-auto my-7 gap-10 p-7 rounded-[50px]'>
                     <div className='flex items-center gap-4'>
                         <div>
                             <MdOutlineLocationOn className='text-2xl' />
