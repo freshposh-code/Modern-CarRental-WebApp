@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="dark:bg-darkBackground">
+      <body className="bg-zinc-100 dark:bg-zinc-900">
       <SessionWrapper>
         <App>
         <ThemeProvider
