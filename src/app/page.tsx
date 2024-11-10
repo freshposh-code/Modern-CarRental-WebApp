@@ -15,7 +15,7 @@ export default function Home() {
       <div className="md:px-16 px-6 xl:mt-[10rem] mt-0">
           <DisplayLogo />
 
-          <PopularSection title='Our Popular Car' desc='Enjoy exclusive deals and the best prices for satisfying travel packages. We offer the best value for everyday adventure.' />
+          <PopularSection category='popular' title='Our Popular Car' desc='Enjoy exclusive deals and the best prices for satisfying travel packages. We offer the best value for everyday adventure.' />
           </div>
     </>
   )
