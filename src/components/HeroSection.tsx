@@ -25,6 +25,7 @@ export default function HeroSection() {
                     initial="hidden"
                     whileInView="show"
                     variants={fadeIn('down', 'tween', 0.70, 0.75)}
+                    viewport={{once: true, amount: 0.25}}
                     className='bg-white dark:bg-zinc-800 w-fit flex xl:flex-row flex-col justify-center items-center m-auto my-7 gap-10 p-7 rounded-[50px]'>
                     <div className='flex items-center gap-4'>
                         <div>
@@ -76,6 +77,7 @@ export default function HeroSection() {
                  initial="hidden"
                  whileInView="show"
                  variants={fadeIn('up', 'tween', 0.70, 0.75)}
+                 viewport={{once: true, amount: 0.25}}
                 className="flex justify-center items-center md:-mt-[8.4rem] -mt-[3rem]">
                     <img src='/sideView.png' alt='carSideView' width={1000} height={1000} className="w-[1000px] object-contain" />
                 </motion.div>
