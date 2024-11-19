@@ -23,31 +23,20 @@ export default function Navbar() {
     const [openWishlist, setOpenWishlist] = useState(false);
     const { data: session } = useSession();
 
-    const getUniqueStorageKey = (userId:any) => {
-        return userId ? `wishlist_${userId}` : `wishlist_guest`;
-      };
-
     const logout = async () => {
         try {
-          const response = await fetch('/api/userLogout');
-          const userResponse = await response.json();
-      
-          if (response.ok) {
-            const storageKey = getUniqueStorageKey(localStorage.getItem("userId"));
-            localStorage.removeItem(storageKey);
-
-            localStorage.removeItem("userId");
-
-            setUser(null);
-            window.location.href = '/login';
-            toast.success(userResponse.message || "Logged out successfully");
-          }
+            const response = await fetch('/api/userLogout')
+            const userResponse = await response.json()
+            
+            if (response.ok) {
+                setUser(null)
+                window.location.href = '/login';
+                toast.success(userResponse.message || "Logged out successfully")
+            }
         } catch (error) {
-          console.error("Error logging out", error);
-          toast.error("An error occurred during logout");
+            console.log("Error logging out", error);
         }
-      };
-      
+    };
 
     return (
         <section className='sm:p-[19px] p-0'>
