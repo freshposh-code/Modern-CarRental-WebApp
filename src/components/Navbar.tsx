@@ -14,26 +14,40 @@ import { toast } from 'react-toastify'
 import {  useState } from 'react'
 import { signOut, useSession } from 'next-auth/react';
 import { navbar } from '@/utils/Data';
+import { FaRegHeart } from "react-icons/fa";
+import Wishlist from './Wishlist';
 
 export default function Navbar() {
     const { user, setUser } = useUserContext();
     const [open, setOpen] = useState(false);
+    const [openWishlist, setOpenWishlist] = useState(false);
     const { data: session } = useSession();
+
+    const getUniqueStorageKey = (userId:any) => {
+        return userId ? `wishlist_${userId}` : `wishlist_guest`;
+      };
 
     const logout = async () => {
         try {
-            const response = await fetch('/api/userLogout')
-            const userResponse = await response.json()
-            
-            if (response.ok) {
-                setUser(null)
-                window.location.href = '/login';
-                toast.success(userResponse.message || "Logged out successfully")
-            }
+          const response = await fetch('/api/userLogout');
+          const userResponse = await response.json();
+      
+          if (response.ok) {
+            const storageKey = getUniqueStorageKey(localStorage.getItem("userId"));
+            localStorage.removeItem(storageKey);
+
+            localStorage.removeItem("userId");
+
+            setUser(null);
+            window.location.href = '/login';
+            toast.success(userResponse.message || "Logged out successfully");
+          }
         } catch (error) {
-            console.log("Error logging out", error);
+          console.error("Error logging out", error);
+          toast.error("An error occurred during logout");
         }
-    };
+      };
+      
 
     return (
         <section className='sm:p-[19px] p-0'>
@@ -51,11 +65,17 @@ export default function Navbar() {
                     ))}
 
 
-                    <div className={`flex ${session?.user?.role === ROLE.ADMIN || user?.role === ROLE.ADMIN ? "gap-10" : "gap-0"} items-center`}>
+                    <div className={`flex ${session?.user?.role === ROLE.ADMIN || user?.role === ROLE.ADMIN ? "gap-10" : "gap-10"} items-center`}>
+                        <div>
                         <ModeToggle />
+                        </div>
+
+                        <span className="cursor-pointer text-2xl bg-white dark:bg-black rounded-full p-2" onClick={() => setOpenWishlist(true)}>
+                        <FaRegHeart/>
+                        </span>
 
                          {(session?.user?.role === ROLE.ADMIN || user?.role === ROLE.ADMIN) &&
-                        <Link href='/admin/dashboard'><span className='text-3xl cursor-pointer'><MdAdminPanelSettings /></span>
+                        <Link href='/admin/dashboard'><span className='cursor-pointer'><MdAdminPanelSettings className='bg-white dark:bg-black p-2 text-[40px] rounded-full' /></span>
                         </Link>
                     }
                     </div>
@@ -73,12 +93,18 @@ export default function Navbar() {
                     }
 
                 </div>
+
+                <span className="lg:hidden flex cursor-pointer text-xl bg-white dark:bg-black rounded-full p-1 z-[2000] absolute right-16" onClick={() => setOpenWishlist(true)}>
+                        <FaRegHeart/>
+                    </span>
+
                 <div className='lg:hidden flex text-2xl cursor-pointer' onClick={() => setOpen((prev) => !prev)}>
-                    <span className='z-[2000]'>
+                    <div className='flex items-center gap-5 z-[2000]'>
                         {
                             open ? <AiOutlineClose /> : <RiMenu3Fill />
                         }
-                    </span>
+                    </div>
+
 
                     {/* *MOBILE NAV MENU */}
                     <div className={`${open ? 'left-0' : 'left-[-100%]'} lg:hidden flex flex-col gap-14 items-center justify-center absolute bg-white/75 inset-0 dark:bg-black/75 z-20 w-screen h-screen duration-500`}>
@@ -111,6 +137,10 @@ export default function Navbar() {
                     </div>
                 </div>
             </nav>
+
+            {
+                openWishlist && <Wishlist callFunc={() => setOpenWishlist(false)} state={openWishlist} />
+            }
 
         </section>
     )
