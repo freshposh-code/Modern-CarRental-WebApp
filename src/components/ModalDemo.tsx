@@ -66,7 +66,7 @@ export function AnimatedModalDemo({data}: ItemsData) {
                 </motion.div>
               ))}
             </div>
-            <div className="py-10 flex flex-wrap gap-x-4 gap-y-6 items-start justify-start max-w-sm mx-auto">
+            <div className="md:py-10 py-5 flex flex-wrap gap-x-4 gap-y-3 items-start justify-center max-w-sm mx-auto">
               <div className="flex items-center justify-center">
                 <span className="text-neutral-700 dark:text-neutral-300 text-sm">
                   {data?.passengers} passengers
@@ -85,7 +85,7 @@ export function AnimatedModalDemo({data}: ItemsData) {
             </div>
 
             <div className="">
-              <h1 className="md:text-sm text-xs py-2 font-medium">{data?.description}</h1>
+              <h1 className="md:text-sm text-xs py-2 font-normal font-serif">{data?.description}</h1>
             </div>
           </ModalContent>
           
@@ -99,3 +99,4 @@ export function AnimatedModalDemo({data}: ItemsData) {
     </div>
   );
 }
+ 
