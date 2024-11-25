@@ -4,16 +4,20 @@ import { MdDashboard } from "react-icons/md";
 
 export const navbar = [
     {
-        name: 'Home'
+        name: 'Home',
+        link: '/'
     },
     {
-        name: 'About Us'
+        name: 'About Us',
+        link: '/aboutUs'
     },
     {
-        name: 'Service'
+        name: 'Service',
+        link: '/service'
     },
     {
-        name: 'Pricing'
+        name: 'Pricing',
+        link: '/pricing'
     },
 ]
 
@@ -56,14 +60,15 @@ export const links = [
   export const fuelCapacities = [
     { id: 1, capacity: "90L", value: "90" },
     { id: 2, capacity: "85L", value: "85" },
-    { id: 3, capacity: "75L", value: "75" },
-    { id: 4, capacity: "70L", value: "70" },
-    { id: 5, capacity: "65L", value: "65" },
-    { id: 6, capacity: "60L", value: "60" },
-    { id: 7, capacity: "55L", value: "55" },
-    { id: 8, capacity: "50L", value: "50" },
-    { id: 9, capacity: "45L", value: "45" },
-    { id: 10, capacity: "40L", value: "40" }
+    { id: 3, capacity: "80L", value: "80" },
+    { id: 4, capacity: "75L", value: "75" },
+    { id: 5, capacity: "70L", value: "70" },
+    { id: 6, capacity: "65L", value: "65" },
+    { id: 7, capacity: "60L", value: "60" },
+    { id: 8, capacity: "55L", value: "55" },
+    { id: 9, capacity: "50L", value: "50" },
+    { id: 10, capacity: "45L", value: "45" },
+    { id: 11, capacity: "40L", value: "40" }
   ];
 
   export const transmission = [
@@ -101,12 +106,11 @@ export const links = [
     { id: 6, type: "hatchback", value: "hatchback" },
     { id: 7, type: "hybrid", value: "hybrid" },
     { id: 8, type: "minivan", value: "minivan" },
-    { id: 9, type: "pickup", value: "pickup" },
+    { id: 9, type: "pickup truck", value: "pickup truck" },
     { id: 10, type: "sedan", value: "sedan" },
     { id: 11, type: "sport", value: "sport" },
     { id: 12, type: "suv", value: "suv" },
     { id: 13, type: "supercar", value: "supercar" },
-    { id: 14, type: "truck", value: "truck" }
   ];
   
 
