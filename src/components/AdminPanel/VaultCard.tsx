@@ -31,9 +31,10 @@ const VaultCard: React.FC<VaultCardProps> = ({data, fetchCars}) => {
          
   return (
     <section>
-        <div className="flex flex-wrap md:justify-normal justify-center gap-5">
+        <div className="flex flex-wrap justify-center md:gap-2 gap-4">
             {data?.map((item, index) => (
                 <div className='bg-gray-300 md:w-56 w-32 dark:bg-zinc-700 group'>
+                    {/* <div className="bg-gray-400 dark:bg-zinc-900 text-center font-semibold">{item.category}</div> */}
                     <div className="flex justify-between p-2 items-center relative cursor-pointer">
                     <h1 className='md:text-lg sm:text-sm text-xs font-bold'>{item.carName}</h1>
                     
@@ -50,9 +51,11 @@ const VaultCard: React.FC<VaultCardProps> = ({data, fetchCars}) => {
 
                     <MdOutlineModeEdit className='bg-green-500 text-black dark:text-white md:size-6 size-5 rounded-full cursor-pointer' onClick={() => handleOpenEditModal(item)} key={item._id}/>
                     </div>
+                    <span>
                     {
-                        openVault && <EditVaultCard onClose={() => setOpenVault(false)} callFunc={fetchCars} Data={selectedItem} id={selectedItem?._id}/>
+                        openVault && <EditVaultCard onClose={() => setOpenVault(false)} callFunc={fetchCars}  Data={selectedItem as Vaultdata} id={selectedItem?._id as string}/>
                     }
+                    </span>
                     <span>
                     {openDel && selectedItemId && <DeleteModal onClose={() => setOpenDel(false)} callFunc={fetchCars} Data={selectedItemId} />}
                      </span>
