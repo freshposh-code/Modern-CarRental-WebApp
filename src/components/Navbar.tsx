@@ -49,7 +49,17 @@ export default function Navbar() {
                 <div className='lg:flex hidden gap-14 items-center'>
                     {navbar.map((items) => (
                         <div key={items.name}>
-                            <li className='font-bold text-lg cursor-pointer hover:border-b-[3px] border-[#4258ffe1] duration-200'>{items.name}</li>
+                          {items?.link ? (
+                  <Link href={items.link}>
+                        <li className="font-bold text-lg cursor-pointer hover:border-b-[3px] border-[#4258ffe1] duration-200">
+                          {items.name}
+                          </li>
+                   </Link>
+             ) : (
+                 <li className="font-bold text-lg cursor-pointer text-gray-500">
+                   {items.name}
+                   </li>
+             )}
                         </div>
                     ))}
 
