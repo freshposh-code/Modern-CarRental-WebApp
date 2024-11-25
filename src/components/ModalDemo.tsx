@@ -90,7 +90,7 @@ export function AnimatedModalDemo({data}: ItemsData) {
           </ModalContent>
           
           <ModalFooter className="gap-4">
-            <button className="bg-black text-white dark:bg-white dark:text-black text-sm md:px-2 px-1 md:py-2 py-1 rounded-md border border-black">
+            <button className="bg-black text-white dark:bg-white dark:text-black text-sm md:px-2 px-1 md:py-2 py-1 rounded-md border border-black hover:scale-75">
               Book Now
             </button>
           </ModalFooter>
