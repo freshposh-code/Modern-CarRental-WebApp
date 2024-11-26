@@ -1,41 +1,36 @@
+'use client'
+
 import { AdminSidebar } from '@/components/AdminPanel/AdminSidebar';
 import Loader from '@/components/Loader';
 import { useAppSelector } from '@/Redux/hooks';
-import { wrapper } from '@/Redux/store';
-import { ThemeProvider } from '@/Theme/theme-provider'
-import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import {  useUserContext } from '@/context/UserContext';
+import { useSession } from 'next-auth/react';
+import { useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 function App({ children }: { children: React.ReactNode }) {
-    // const isLoading = useAppSelector(store => store.loadingSlice);
+    const isLoading = useAppSelector(store => store.loadingSlice);
+    const { user } = useUserContext();
+    const { data: session } = useSession();
+
+    useEffect(() => {
+        if (session?.user?.role || user?.role !== 'ADMIN') {
+            window.location.href = '/';
+             toast.error("ACCESS DENIED!");
+        }
+      }, [user]);
   
     return (
         <>
-            <ThemeProvider
-                attribute="class"
-                defaultTheme="system"
-                enableSystem
-                disableTransitionOnChange
-            >
-              <div className="bg-gray-300 flex h-screen">
+              <div className="bg-gray-300 dark:bg-zinc-700 flex">
               <AdminSidebar />
              {children}
                </div>
-            </ThemeProvider>
-            <ToastContainer
-                position="top-center"
-                toastStyle={{
-                    backgroundColor: '#868686',
-                    color: '#fff',
-                    borderRadius: '22px',
-                    fontSize: '14px',
-                }}
-            />
-             {/* {isLoading && <Loader />} */}
+              {isLoading && <Loader />}
     </>
     )
     
 }
 
 
-export default (App);
+export default App;
