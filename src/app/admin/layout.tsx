@@ -14,11 +14,14 @@ function App({ children }: { children: React.ReactNode }) {
     const { data: session } = useSession();
 
     useEffect(() => {
-        if (session?.user?.role || user?.role !== 'ADMIN') {
-            window.location.href = '/';
-             toast.error("ACCESS DENIED!");
-        }
-      }, [user]);
+      const userRole = session?.user?.role || user?.role;
+  
+      if (userRole !== 'ADMIN') {
+          toast.error("ACCESS DENIED!");
+          window.location.href = '/';
+      }
+  }, [session, user]);
+  
   
     return (
         <>
