@@ -163,3 +163,28 @@ export const links = [
     { id: 41, brand: "Volvo", value: "volvo" }
   ];
   
+  export const journey = [
+    {
+      img: '/porsche1.jpeg',
+      date: 'June 8, 2024',
+      desc: 'Unveiling the Latest Automotive Marvel',
+      text: 'Enjoy exclusive deals at the best price',
+      link: 'Learn more',
+    },
+
+    {
+      img: '/porsche2.jpeg',
+      date: 'June 8, 2024',
+      desc: 'Unveiling the Latest Automotive Marvel',
+      text: 'Enjoy exclusive deals at the best price',
+      link: 'Learn more',
+    },
+    
+    {
+      img: '/porsche3.jpeg',
+      date: 'June 8, 2024',
+      desc: 'Unveiling the Latest Automotive Marvel',
+      text: 'Enjoy exclusive deals at the best price',
+      link: 'Learn more',
+    },
+  ]
