@@ -140,10 +140,10 @@ const PopularSection = ({title , desc, category}: {title: string; desc: string; 
 
   return (
     <section className='md:py-16 py-6'>
-        <div className='flex justify-between items-center md:flex-row flex-col md:gap-0 gap-5'>
-            <h1 className='md:text-5xl text-3xl font-medium'>{title}</h1>
+           <div className='flex justify-between items-center sm:flex-row flex-col md:gap-0 gap-2'>
+            <h1 className='lg:text-5xl md:text-3xl text-xl font-medium lg:max-w-[450px] w-full'>{title}</h1>
 
-            <p className='max-w-[380px] md:text-base text-xs'>{desc}</p>
+            <p className='lg:max-w-[380px] w-full lg:text-base md:text-[12px] text-[11px]'>{desc}</p>
         </div>
          
         {loading ? (

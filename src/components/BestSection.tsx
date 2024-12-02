@@ -141,17 +141,17 @@ const BestSection = ({title , desc, category}: {title: string; desc: string; cat
 
   return (
     <section className='md:py-16 py-6'>
-        <div className='flex justify-between items-center md:flex-row flex-col md:gap-0 gap-5'>
-            <h1 className='md:text-5xl text-3xl font-medium max-w-[450px]'>{title}</h1>
+            <div className='flex justify-between items-center sm:flex-row flex-col md:gap-0 gap-2'>
+            <h1 className='lg:text-5xl md:text-3xl text-xl font-medium lg:max-w-[450px] w-full'>{title}</h1>
 
-            <p className='max-w-[380px] md:text-base text-xs'>{desc}</p>
+            <p className='lg:max-w-[380px] w-full lg:text-base md:text-[12px] text-[11px]'>{desc}</p>
         </div>
          
         {loading ? (
-        <div className='py-6 grid md:grid-cols-4 grid-cols-2 items-center animate-pulse'>
+        <div className='py-6 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-2 place-items-center animate-pulse'>
         {loadingList.map((_, index) => (
            <div key={index} className='md:px-2 px-1 my-3'>
-           <div className='bg-gray-300 dark:bg-gray-400 md:w-80 w-40 p-3 rounded-md'>
+           <div className='bg-gray-300 dark:bg-gray-400 lg:w-80 md:w-72 xm:w-40 w-36 p-3 rounded-md'>
          <div className="flex justify-between items-center">
            <div className='md:px-14 px-8 md:py-3 py-2 bg-gray-400 dark:bg-gray-500 rounded-full'/>
          <div className="md:p-3 p-2 rounded-full bg-gray-400 dark:bg-gray-500"/>
@@ -178,23 +178,23 @@ const BestSection = ({title , desc, category}: {title: string; desc: string; cat
 
         ) : (
           data.length > 0 ? (
-          <div className='py-6 grid md:grid-cols-4 grid-cols-2 items-center relative'>
+          <div className='py-6 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-2 place-items-center relative'>
          {data.slice(0, visibleCount).map((item, index) => (
-            <div key={index} className='md:px-2 px-1 my-3'>
-            <div className={`bg-white dark:bg-zinc-800 md:w-80 w-40 p-3 rounded-md`}>
+            <div key={index} className='md:px-2 px-1 md:my-3 my-2'>
+            <div className={`bg-white dark:bg-zinc-800 lg:w-80 md:w-72 xm:w-40 w-32 p-3 rounded-md`}>
           <div className="flex justify-between items-center">
-            <h1 className='font-bold md:text-lg text-[13px]'>{item?.carName}</h1>
+            <h1 className='font-bold lg:text-lg md:text-[13px] text-[13px]'>{item?.carName}</h1>
             <span onClick={() => toggleWishlist(item)}  className='cursor-pointer text-black bg-white rounded-full p-1'>
               {
              likedItems[item._id] ? <FcLike/> : <CiHeart />
               }
             </span>
           </div>
-          <span className='md:text-base text-xs text-slate-500 dark:text-slate-400 font-semibold'>{item?.carType}</span>
+          <span className='lg:text-base md:text-xs text-xs text-slate-500 dark:text-slate-400 font-semibold'>{item?.carType}</span>
           <span>
             <img className='w-48 h-20 object-contain m-auto mt-8' src={item?.carImage[0]} alt="cars" />
           </span>
-          <div className='flex items-center justify-between py-5 md:text-base text-xs text-slate-500 dark:text-slate-400 font-semibold'>
+          <div className='flex items-center justify-between py-5 lg:text-base text-[11px] text-slate-500 dark:text-slate-400 font-semibold'>
             <div className='flex items-center gap-1'>
               <BsFillFuelPumpFill />
               <span>{item?.capacity}</span>
@@ -209,7 +209,7 @@ const BestSection = ({title , desc, category}: {title: string; desc: string; cat
             </div>
           </div>
           <div className="flex items-center justify-between">
-            <h1 className='font-bold md:text-base text-[8px]'>{displayCurrency(item?.price)}<span className='font-normal'>/day</span></h1>
+            <h1 className='font-bold lg:text-base text-[8px]'>{displayCurrency(item?.price)}<span className='font-normal'>/day</span></h1>
             <span>
             <AnimatedModalDemo data={item} />
             </span>
@@ -220,17 +220,17 @@ const BestSection = ({title , desc, category}: {title: string; desc: string; cat
           
           {visibleCount < data.length && (
              <div className='text-center absolute right-0 left-0 bottom-0 -m-7'>
-               <button onClick={handleShowMore} className='px-4 py-2 bg-black dark:bg-white hover:bg-white hover:text-black border-2 dark:hover:bg-black dark:hover:text-white duration-150 text-white dark:text-black rounded-full'>
+               <button onClick={handleShowMore} className='px-4 py-2 bg-black dark:bg-white hover:bg-white hover:text-black border-2 dark:hover:bg-black dark:hover:text-white duration-150 text-white dark:text-black rounded-full md:text-base text-xs'>
                  See More
                </button>
              </div>
            )}
        </div>
           ) : (
-            <div className='py-6 grid md:grid-cols-4 grid-cols-2 items-center animate-pulse'>
+            <div className='py-6 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-2 place-items-center animate-pulse'>
             {loadingList.map((_, index) => (
                <div key={index} className='md:px-2 px-1 my-3'>
-               <div className='bg-gray-300 dark:bg-gray-400 md:w-80 w-40 p-3 rounded-md'>
+               <div className='bg-gray-300 dark:bg-gray-400 lg:w-80 md:w-72 xm:w-40 w-36 p-3 rounded-md'>
              <div className="flex justify-between items-center">
                <div className='md:px-14 px-8 md:py-3 py-2 bg-gray-400 dark:bg-gray-500 rounded-full'/>
              <div className="md:p-3 p-2 rounded-full bg-gray-400 dark:bg-gray-500"/>
