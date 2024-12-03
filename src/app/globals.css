@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Rhodium+Libre&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Rhodium+Libre&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -12,23 +12,23 @@
 
 /* The entire scrollbar */
 ::-webkit-scrollbar {
-    width: 6px;
+  width: 6px;
 }
 
 /* The scrollbar track */
 ::-webkit-scrollbar-track {
-    background: #ffffff;
+  background: #ffffff;
 }
 
 /* The scrollbar handle */
 ::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 8px;
+  background: #888;
+  border-radius: 8px;
 }
 
 /* The scrollbar handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #434343;
+  background: #434343;
 }
 
 /**scrollbar hidden****/
@@ -62,7 +62,7 @@ body {
 }
 
 .loader::after {
-  content: '';
+  content: "";
   box-sizing: border-box;
   position: absolute;
   left: 0;
@@ -79,7 +79,9 @@ body {
   transform-origin: center center;
 }
 
-tr,td,th {
+tr,
+td,
+th {
   padding: 15px;
 }
 
@@ -90,7 +92,6 @@ tr,td,th {
 .blur-theme {
   @apply bg-white/50 dark:bg-black/50 bg-clip-padding backdrop-filter backdrop-blur bg-opacity-50 opacity-100 z-[4000] shadow-sm shadow-slate-100 transition-all duration-300;
 }
-
 
 @keyframes rotation {
   0% {
@@ -184,14 +185,15 @@ tr,td,th {
     display: none;
   }
 
-  .table-responsive tr,td {
+  .table-responsive tr,
+  td {
     position: relative;
     display: flex;
     flex-direction: column;
     padding: 10px;
     text-align: right;
   }
-  
+
   .table-responsive td::before {
     content: attr(label-as);
     position: absolute;
