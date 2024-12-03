@@ -183,7 +183,7 @@ const BestSection = ({title , desc, category}: {title: string; desc: string; cat
             <div key={index} className='md:px-2 px-1 md:my-3 my-2'>
             <div className={`bg-white dark:bg-zinc-800 lg:w-80 md:w-72 xm:w-40 w-32 p-3 rounded-md`}>
           <div className="flex justify-between items-center">
-            <h1 className='font-bold lg:text-lg md:text-[13px] text-[13px]'>{item?.carName}</h1>
+            <h1 className='font-bold lg:text-lg md:text-[13px] xm:text-[13px] text-[9px]'>{item?.carName}</h1>
             <span onClick={() => toggleWishlist(item)}  className='cursor-pointer text-black bg-white rounded-full p-1'>
               {
              likedItems[item._id] ? <FcLike/> : <CiHeart />
@@ -194,16 +194,16 @@ const BestSection = ({title , desc, category}: {title: string; desc: string; cat
           <span>
             <img className='w-48 h-20 object-contain m-auto mt-8' src={item?.carImage[0]} alt="cars" />
           </span>
-          <div className='flex items-center justify-between py-5 lg:text-base text-[11px] text-slate-500 dark:text-slate-400 font-semibold'>
-            <div className='flex items-center gap-1'>
+          <div className='flex items-center justify-between py-5 lg:text-base xm:text-[11px] text-[9px] text-slate-500 dark:text-slate-400 font-semibold'>
+            <div className='flex items-center xm:gap-1 gap-0'>
               <BsFillFuelPumpFill />
               <span>{item?.capacity}</span>
             </div>
-            <div className='flex items-center gap-1'>
+            <div className='flex items-center xm:gap-1 gap-0'>
               <SiConstruct3 />
               <span>{item?.transmission}</span>
             </div>
-            <div className='flex items-center gap-1'>
+            <div className='flex items-center xm:gap-1 gap-0'>
               <HiUsers />
               <span>{item?.passengers}</span>
             </div>
