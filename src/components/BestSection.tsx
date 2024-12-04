@@ -183,8 +183,8 @@ const BestSection = ({title , desc, category}: {title: string; desc: string; cat
             <div key={index} className='md:px-2 px-1 md:my-3 my-2'>
             <div className={`bg-white dark:bg-zinc-800 lg:w-80 md:w-72 xm:w-40 w-32 p-3 rounded-md`}>
           <div className="flex justify-between items-center">
-            <h1 className='font-bold lg:text-lg md:text-[13px] xm:text-[13px] text-[9px]'>{item?.carName}</h1>
-            <span onClick={() => toggleWishlist(item)}  className='cursor-pointer text-black bg-white rounded-full p-1'>
+            <h1 className='font-bold lg:text-lg md:text-sm xm:text-sm text-xs'>{item?.carName}</h1>
+            <span onClick={() => toggleWishlist(item)}  className='cursor-pointer text-black bg-zinc-200 rounded-full p-1'>
               {
              likedItems[item._id] ? <FcLike/> : <CiHeart />
               }
