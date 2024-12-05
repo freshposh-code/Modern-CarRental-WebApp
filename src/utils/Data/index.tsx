@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { IoCarSportSharp } from "react-icons/io5";
 import { MdDashboard } from "react-icons/md";
 
@@ -174,16 +173,16 @@ export const links = [
 
     {
       img: '/porsche2.jpeg',
-      date: 'June 8, 2024',
-      desc: 'Unveiling the Latest Automotive Marvel',
+      date: 'August 16, 2024',
+      desc: 'A Symphony of Style and innovation',
       text: 'Enjoy exclusive deals at the best price',
       link: 'Learn more',
     },
     
     {
       img: '/porsche3.jpeg',
-      date: 'June 8, 2024',
-      desc: 'Unveiling the Latest Automotive Marvel',
+      date: 'May 30, 2024',
+      desc: 'The Art and Science of Contemporary',
       text: 'Enjoy exclusive deals at the best price',
       link: 'Learn more',
     },
