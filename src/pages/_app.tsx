@@ -9,6 +9,7 @@ import Loader from "@/components/Loader";
 import { useAppSelector } from "@/Redux/hooks";
 import { wrapper } from "@/Redux/store";
 import SessionWrapper from "@/lib/SessionWrapper";
+import Footer from "@/components/Footer";
 
 function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     const { store, props } = wrapper.useWrappedStore(pageProps);
@@ -35,6 +36,7 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
             />
             </SessionWrapper>
             {isLoading && <Loader />}
+            <Footer />
         </>
     );
 }
