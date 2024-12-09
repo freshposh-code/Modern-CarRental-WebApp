@@ -1,5 +1,9 @@
 import { IoCarSportSharp } from "react-icons/io5";
 import { MdDashboard } from "react-icons/md";
+import { AiFillAliwangwang } from "react-icons/ai";
+import { AiFillAlipayCircle } from "react-icons/ai";
+import { AiFillAmazonCircle } from "react-icons/ai";
+import { AiFillQuestionCircle } from "react-icons/ai";
 
 export const navbar = [
     {
@@ -111,13 +115,13 @@ export const links = [
     { id: 12, type: "suv", value: "suv" },
     { id: 13, type: "supercar", value: "supercar" },
   ];
-  
 
   export const categories = [
     { id: 1, brand: "Popular", value: "popular" }, 
     { id: 2, brand: "Best", value: "best" }, 
     { id: 3, brand: "Reserved", value: "reserved" }, 
   ];
+  
   export const manufacturers = [
     { id: 1, brand: "Aston Martin", value: "astonmartin" },
     { id: 2, brand: "Audi", value: "audi" },
@@ -185,5 +189,65 @@ export const links = [
       desc: 'The Art and Science of Contemporary',
       text: 'Enjoy exclusive deals at the best price',
       link: 'Learn more',
+    },
+  ]
+
+  export const footerLinks = [
+    {
+      link: 'Funds & Benefit',
+    },
+    {
+      link: 'Digital Transformation',
+    },
+    {
+      link: 'Life at Fintech',
+    },
+    {
+      link: 'Web Development',
+    },
+    {
+      link: 'Values',
+    },
+    {
+      link: 'Smart Contract',
+    },
+    {
+      link: 'Design',
+    },
+    {
+      link: 'Branding',
+    },
+    {
+      link: 'Growth',
+    },
+    {
+      link: 'Apps',
+    },
+    {
+      link: 'Android',
+    },
+    {
+      link: 'Web3',
+    },
+    {
+      link: 'IOS',
+    },
+    {
+      link: 'Defi',
+    },
+  ]
+
+  export const footerIcons = [
+    {
+      icon: <AiFillAliwangwang />      
+    },
+    {
+      icon: <AiFillAlipayCircle />      
+    },
+    {
+      icon: <AiFillAmazonCircle />      
+    },
+    {
+      icon: <AiFillQuestionCircle />      
     },
   ]
