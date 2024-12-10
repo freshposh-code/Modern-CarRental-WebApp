@@ -5,7 +5,6 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import SessionWrapper from "@/lib/SessionWrapper";
 import App from "./App";
-import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Car Rental",
@@ -41,7 +40,6 @@ export default function RootLayout({
             fontSize: '14px',
           }}
         />
-        <Footer/>
       </body>
     </html>
   );

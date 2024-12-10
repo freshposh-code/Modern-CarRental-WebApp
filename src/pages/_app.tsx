@@ -10,6 +10,8 @@ import { useAppSelector } from "@/Redux/hooks";
 import { wrapper } from "@/Redux/store";
 import SessionWrapper from "@/lib/SessionWrapper";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+import { UserProvider } from "@/context/UserContext";
 
 function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     const { store, props } = wrapper.useWrappedStore(pageProps);
@@ -17,6 +19,8 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
 
     return (
         <>
+        <UserProvider>
+        <div className="bg-zinc-100 dark:bg-zinc-900">
         <SessionWrapper session={session}>
             <ThemeProvider
                 attribute="class"
@@ -37,6 +41,8 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
             </SessionWrapper>
             {isLoading && <Loader />}
             <Footer />
+            </div>
+            </UserProvider>
         </>
     );
 }

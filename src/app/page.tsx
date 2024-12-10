@@ -2,6 +2,7 @@
 
 import BestSection from "@/components/BestSection";
 import DisplayLogo from "@/components/DisplayLogo";
+import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import Journey from "@/components/Journey";
 import Navbar from "@/components/Navbar";
@@ -23,6 +24,7 @@ export default function Home() {
 
           <Journey title='Embark on a journey and Performance' desc='Enjoy exclusive deals and the best prices for satisfying travel packages. We offer the best value for everyday adventure.'/>
           </div>
+        <Footer/>
     </>
   )
 }
