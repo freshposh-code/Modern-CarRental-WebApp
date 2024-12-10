@@ -109,7 +109,9 @@ export default function Navbar() {
                     <div className={`${open ? 'left-0' : 'left-[-100%]'} lg:hidden flex flex-col gap-14 items-center justify-center absolute bg-white/75 inset-0 dark:bg-black/75 z-20 w-full h-screen duration-500`}>
                         {navbar.map((items) => (
                             <div key={items.name}>
+                                <Link href={items.link}>
                                 <li className='font-bold text-lg cursor-pointer'>{items.name}</li>
+                                </Link>
                             </div>
                         ))}
 
