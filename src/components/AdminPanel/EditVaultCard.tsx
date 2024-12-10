@@ -118,7 +118,7 @@ const EditVaultCard = ({onClose, callFunc, Data , id}: upload) => {
       
     
   return (
-    <section className='w-screen h-screen bg-white/10 dark:bg-black/10 absolute z-[2000] inset-0'>
+    <section>
         <div className='min-h-screen flex justify-center items-center'>
      <form className='flex flex-col w-full max-w-xl bg-neutral-100 dark:bg-zinc-950 overflow-auto h-[calc(100vh-48px)] p-3 rounded-xl' onSubmit={handleSubmit}>
         <div className="flex items-center my-3">

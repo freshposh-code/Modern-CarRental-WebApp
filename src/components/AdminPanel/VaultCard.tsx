@@ -53,7 +53,10 @@ const VaultCard: React.FC<VaultCardProps> = ({data, fetchCars}) => {
                     </div>
                     <span>
                     {
-                        openVault && <EditVaultCard onClose={() => setOpenVault(false)} callFunc={fetchCars}  Data={selectedItem as Vaultdata} id={selectedItem?._id as string}/>
+                        openVault && 
+                        <div className="w-screen h-screen bg-white/5 dark:bg-black/5 absolute z-[2000] inset-0">
+                        <EditVaultCard onClose={() => setOpenVault(false)} callFunc={fetchCars}  Data={selectedItem as Vaultdata} id={selectedItem?._id as string}/>
+                        </div>
                     }
                     </span>
                     <span>
