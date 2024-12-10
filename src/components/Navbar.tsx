@@ -40,11 +40,11 @@ export default function Navbar() {
 
     return (
         <section className='sm:p-[19px] p-0'>
-            <nav className='flex justify-between items-center sm:px-0 px-3 sm:py-0 py-4'>
-                <div className='flex items-center gap-2 z-[1000]'>
+            <nav className='flex justify-between items-center px-3 sm:py-0 py-4'>
+                <Link href='/' className='flex items-center gap-2 z-[1000]'>
                     <div className="border-4 border-blue-700 sm:size-12 size-8 rounded-full" />
                     <h1 className='font-extrabold sm:text-3xl text-2xl'>Rivent</h1>
-                </div>
+                </Link>
 
                 <div className='lg:flex hidden gap-14 items-center'>
                     {navbar.map((items) => (
@@ -106,7 +106,7 @@ export default function Navbar() {
 
 
                     {/* *MOBILE NAV MENU */}
-                    <div className={`${open ? 'left-0' : 'left-[-100%]'} lg:hidden flex flex-col gap-14 items-center justify-center absolute bg-white/75 inset-0 dark:bg-black/75 z-20 w-screen h-screen duration-500`}>
+                    <div className={`${open ? 'left-0' : 'left-[-100%]'} lg:hidden flex flex-col gap-14 items-center justify-center absolute bg-white/75 inset-0 dark:bg-black/75 z-20 w-full h-screen duration-500`}>
                         {navbar.map((items) => (
                             <div key={items.name}>
                                 <li className='font-bold text-lg cursor-pointer'>{items.name}</li>
