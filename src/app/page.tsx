@@ -24,7 +24,9 @@ export default function Home() {
 
           <Journey title='Embark on a journey and Performance' desc='Enjoy exclusive deals and the best prices for satisfying travel packages. We offer the best value for everyday adventure.'/>
           </div>
+          <div className="mt-16">
         <Footer/>
+        </div>
     </>
   )
 }

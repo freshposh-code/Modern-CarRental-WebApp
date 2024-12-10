@@ -10,7 +10,6 @@ import { useAppSelector } from "@/Redux/hooks";
 import { wrapper } from "@/Redux/store";
 import SessionWrapper from "@/lib/SessionWrapper";
 import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 import { UserProvider } from "@/context/UserContext";
 
 function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
@@ -40,7 +39,9 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
             />
             </SessionWrapper>
             {isLoading && <Loader />}
-            <Footer />
+            <div className="mt-16">
+            <Footer/>
+              </div>
             </div>
             </UserProvider>
         </>
