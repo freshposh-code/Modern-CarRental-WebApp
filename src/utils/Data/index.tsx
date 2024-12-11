@@ -4,6 +4,10 @@ import { AiFillAliwangwang } from "react-icons/ai";
 import { AiFillAlipayCircle } from "react-icons/ai";
 import { AiFillAmazonCircle } from "react-icons/ai";
 import { AiFillQuestionCircle } from "react-icons/ai";
+import { RiMessage2Fill } from "react-icons/ri";
+import { MdWork } from "react-icons/md";
+import { BsWallet, BsWalletFill } from "react-icons/bs";
+
 
 export const navbar = [
     {
@@ -121,7 +125,7 @@ export const links = [
     { id: 2, brand: "Best", value: "best" }, 
     { id: 3, brand: "Reserved", value: "reserved" }, 
   ];
-  
+
   export const manufacturers = [
     { id: 1, brand: "Aston Martin", value: "astonmartin" },
     { id: 2, brand: "Audi", value: "audi" },
@@ -249,5 +253,28 @@ export const links = [
     },
     {
       icon: <AiFillQuestionCircle />      
+    },
+  ]
+
+  export const abousUs = [
+    {
+      icon: <IoCarSportSharp />,
+      head: 'ALL BRANDS',
+      desc: `These brands collectively emphasize free support, dealerships to provide easy access to genuine parts, and affordable options`,
+    },
+    {
+      icon: <RiMessage2Fill />,
+      head: 'FREE SUPPORT',
+      desc:`This brand offer extensive warranties, complimentary maintenance services, and 24/7 roadside assistance for added peace of mind.`,
+    },
+    {
+      icon: <MdWork />,
+      head: 'DEALERSHIP',
+      desc: `Enjoy wide dealership networks offering easy access to certified vehicles, genuine parts, and professional service centers.`
+    },
+    {
+      icon: <BsWalletFill />,
+      head: 'AFFORDABLE',
+      desc: `With a range of models across budgets, these brands provide vehicles that balance cost, efficiency, and performance.`,
     },
   ]
