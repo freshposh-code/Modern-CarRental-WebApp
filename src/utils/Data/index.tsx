@@ -6,7 +6,7 @@ import { AiFillAmazonCircle } from "react-icons/ai";
 import { AiFillQuestionCircle } from "react-icons/ai";
 import { RiMessage2Fill } from "react-icons/ri";
 import { MdWork } from "react-icons/md";
-import { BsWallet, BsWalletFill } from "react-icons/bs";
+import {  BsWalletFill } from "react-icons/bs";
 
 
 export const navbar = [
@@ -275,6 +275,6 @@ export const links = [
     {
       icon: <BsWalletFill />,
       head: 'AFFORDABLE',
-      desc: `With a range of models across budgets, these brands provide vehicles that balance cost, efficiency, and performance.`,
+      desc: `With a range of models across budgets, these brands provide vehicles that balance cost, efficiency, and performance for everyone.`,
     },
   ]
