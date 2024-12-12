@@ -21,8 +21,8 @@ const Journey = ({title, desc}:{title:string; desc:string}) => {
                 <div className='py-3 px-3 bg-white dark:bg-zinc-800'>
                     <h2 className='text-blue-700 md:text-base text-[10px]'>{item.date}</h2>
 
-                    <h1 className='xl:text-3xl lg:text-2xl md:text-sm text-xs md:py-2 py-1 font-semibold max-w-[300px]'>{item.desc}</h1>
-                    <p className='md:text-base text-[10px]'>{item.text}</p>
+                    <h1 className='xl:text-3xl lg:text-xl md:text-sm text-xs md:py-2 py-1 font-semibold max-w-[300px]'>{item.desc}</h1>
+                    <p className='lg:text-base md:text-xs text-[9px]'>{item.text}</p>
 
                     <Link href='/'>
                     <p className='flex items-center gap-2 md:mt-8 mt-5 text-blue-700 md:text-base text-[10px] cursor-pointer'>{item.link} <MdArrowRightAlt/></p>

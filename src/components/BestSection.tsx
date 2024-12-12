@@ -194,7 +194,7 @@ const BestSection = ({title , desc, category}: {title: string; desc: string; cat
           <span>
             <img className='w-48 h-20 object-contain m-auto mt-8' src={item?.carImage[0]} alt="cars" />
           </span>
-          <div className='flex items-center justify-between py-5 lg:text-base xm:text-[11px] text-[9px] text-slate-500 dark:text-slate-400 font-semibold'>
+          <div className='flex items-center justify-between py-5 lg:text-base md:text-sm text-[9px] text-slate-500 dark:text-slate-400 font-semibold'>
             <div className='flex items-center xm:gap-1 gap-0'>
               <BsFillFuelPumpFill />
               <span>{item?.capacity}</span>
@@ -209,7 +209,7 @@ const BestSection = ({title , desc, category}: {title: string; desc: string; cat
             </div>
           </div>
           <div className="flex items-center justify-between">
-            <h1 className='font-bold lg:text-base text-[8px]'>{displayCurrency(item?.price)}<span className='font-normal'>/day</span></h1>
+            <h1 className='font-bold lg:text-base md:text-sm text-[8px]'>{displayCurrency(item?.price)}<span className='font-normal'>/day</span></h1>
             <span>
             <AnimatedModalDemo data={item} />
             </span>
