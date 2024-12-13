@@ -36,7 +36,7 @@ const DeleteModal = ({onClose, callFunc, Data}: {onClose: () => void; callFunc: 
   }
   return (
     <motion.section 
-     className='flex justify-center items-center min-h-screen absolute inset-0 blur-effect-theme'>
+     className='flex justify-center items-center min-h-screen absolute inset-0 bg-white/5 dark:bg-black/5 z-20'>
        <motion.div 
        initial='hidden'
        whileInView='show'
