@@ -39,9 +39,7 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
             />
             </SessionWrapper>
             {isLoading && <Loader />}
-            <div className="mt-16">
             <Footer/>
-              </div>
             </div>
             </UserProvider>
         </>
