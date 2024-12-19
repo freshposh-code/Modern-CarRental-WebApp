@@ -14,13 +14,13 @@ export async function POST(req: NextRequest) {
 
   try {
     const token = (await getToken({ req, secret: process.env.NEXT_PUBLIC_APP_NEXTAUTH_SECRET })) as CustomToken;
-    const guestCookies = cookies();
+    const cookieStore = cookies();
 
-    let userId = token?.id ?? guestCookies.get("guestId")?.value;
+    let userId = token?.id ?? cookieStore.get("guestId")?.value;
 
     if (!userId) {
       userId = uuidv4();
-      guestCookies.set({
+      cookieStore.set({
         name: "guestId",
         value: userId,
         httpOnly: true,
@@ -28,15 +28,15 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    const body = await req.json().catch(() => null);
-    if (!body?.carName || !body?.carImage || !body?.price) {
+    const body = await req.json();
+    const { carName, carImage, price } = body;
+
+    if (!carName || !carImage || !price) {
       return NextResponse.json(
         { message: "Invalid or missing request body" },
         { status: 400 }
       );
     }
-
-    const { carName, carImage, price } = body;
 
     const existingItem = await wishlistModel.findOne({ userId, carName });
 
