@@ -140,7 +140,7 @@ export default function Navbar() {
             </nav>
 
             {
-                openWishlist && <Wishlist callFunc={() => setOpenWishlist(false)} state={openWishlist} />
+                openWishlist && <Wishlist callFunc={() => setOpenWishlist(false)} userId='user' />
             }
 
         </section>
