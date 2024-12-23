@@ -32,6 +32,7 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
                 <Component {...props} />
             </ThemeProvider>
             <ToastContainer
+                position="top-center"
                 toastStyle={{
                     backgroundColor: '#868686',
                     color: '#fff',
