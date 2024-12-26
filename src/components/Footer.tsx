@@ -35,7 +35,7 @@ const Footer = () => {
 
                 <div className='lg:hidden flex lg:mt-32 mt-6 gap-3'>
                       {footerIcons.map((item, index) => (
-                       <div onClick={() => handleSelect(index)}>
+                       <div onClick={() => handleSelect(index)} key={index}>
                        <div className={`border-2 border-neutral-100 rounded-full p-4 lg:text-xl text-sm ${index === selectIcon ? 'bg-white text-black' : ''}`}>{item.icon}</div>
                        </div>
                       ))}
