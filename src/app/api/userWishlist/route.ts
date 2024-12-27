@@ -13,21 +13,27 @@ export async function POST(req: NextRequest) {
   await connectDB();
 
   try {
-    const token = (await getToken({ req, secret: process.env.NEXT_PUBLIC_APP_NEXTAUTH_SECRET })) as CustomToken;
-    const cookieStore = cookies();
+    const token = (await getToken({
+      req,
+      secret: process.env.NEXT_PUBLIC_APP_NEXTAUTH_SECRET,
+    })) as CustomToken;
 
+    const cookieStore = cookies();
     let userId = token?.id ?? cookieStore.get("guestId")?.value;
 
+    // If no userId, generate and set a persistent guestId cookie
     if (!userId) {
       userId = uuidv4();
-      cookieStore.set({
-        name: "guestId",
-        value: userId,
+      cookieStore.set("guestId", userId, {
         httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
         path: "/",
+        maxAge: 60 * 60 * 24 * 365 * 100, // 100 years
       });
+      
     }
 
+    // Parse and validate request body
     const body = await req.json();
     const { carName, carImage, price } = body;
 
@@ -38,23 +44,24 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // Check if the item exists; if yes, remove it; otherwise, add it
     const existingItem = await wishlistModel.findOne({ userId, carName });
 
     if (existingItem) {
       await wishlistModel.deleteOne({ userId, carName });
-      return NextResponse.json({
-        message: "Item removed from wishlist",
-        action: "removed",
-      });
+      return NextResponse.json(
+        { message: "Item removed from wishlist", action: "removed" },
+        { status: 200 }
+      );
     }
 
     const newItem = new wishlistModel({ userId, carName, carImage, price });
     await newItem.save();
 
-    return NextResponse.json({
-      message: "Item added to wishlist",
-      action: "added",
-    });
+    return NextResponse.json(
+      { message: "Item added to wishlist", action: "added" },
+      { status: 201 }
+    );
   } catch (error: any) {
     console.error("Error processing wishlist request:", error);
     return NextResponse.json(
