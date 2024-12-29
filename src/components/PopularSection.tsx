@@ -9,6 +9,7 @@ import { displayCurrency } from '@/utils/displayCurrency';
 import { AnimatedModalDemo } from './ModalDemo';
 import { FcLike } from "react-icons/fc";
 import { toast } from 'react-toastify';
+import { useWishlist } from '@/context/WishlistContext';
 
 export interface CategoryData {
   _id: string;
@@ -34,64 +35,7 @@ const PopularSection = ({title , desc, category}: {title: string; desc: string; 
   const [data, setData] = useState<CategoryData[]>([])
   const [loading, setLoading] = useState(true);
   const loadingList = new Array(12).fill(null);
-  const [likedItems, setLikedItems] = useState<{ [key: string]: boolean}>({});
-
-  useEffect(() => {
-    const storedLikedItems = localStorage.getItem("likedItems");
-    if (storedLikedItems) {
-      setLikedItems(JSON.parse(storedLikedItems));
-    }
-  }, []);
-
-  const toggleWishlist = async (item:Item) => {
-    if (!item?.carName || !item?.carImage || !item?.price) {
-      toast.error("Invalid item details");
-      return;
-    }
-  
-    try {
-      const storedUserId = localStorage.getItem("userId");
-      const storageKey = getUniqueStorageKey(storedUserId);
-  
-      const response = await fetch(`/api/userWishlist`, {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          carName: item.carName,
-          carImage: item.carImage,
-          price: item.price,
-        }),
-      });
-  
-      const data = await response.json();
-  
-      if (response.ok) {
-        const updatedItems = { ...likedItems };
-      
-        if (data.action === "added") {
-          updatedItems[item._id] = true;
-          toast.success(`${item?.carName} added to wishlist`);
-        } else if (data.action === "removed") {
-          delete updatedItems[item._id];
-          toast.success(`${item?.carName} removed from wishlist`);
-        }
-      
-        setLikedItems(updatedItems);
-        localStorage.setItem(storageKey, JSON.stringify(updatedItems));
-
-      } else {
-        toast.error(data.message || "An error occurred");
-      }
-    } catch (error) {
-      console.error("Error toggling wishlist item:", error);
-      toast.error("Failed to update wishlist");
-    }
-  };
-  
-  
+  const { likedItems, toggleWishlist } = useWishlist();
 
   const colors = ['bg-violet-100 dark:bg-violet-400', 'bg-blue-100 dark:bg-blue-400', 'bg-red-100 dark:bg-red-400', 'bg-gray-300 dark:bg-gray-400', 'bg-purple-300 dark:bg-purple-400', 'bg-zinc-200 dark:bg-zinc-400', 'bg-orange-100 dark:bg-orange-400', 'bg-sky-100 dark:bg-neutral-400', 'bg-indigo-100 dark:bg-indigo-400', 'bg-amber-100 dark:bg-amber-400', 'bg-white dark:bg-gray-400',];
 
@@ -121,22 +65,6 @@ const PopularSection = ({title , desc, category}: {title: string; desc: string; 
   useEffect(() => {
     fetchCategory()
   }, [category]);
-
-  const getUniqueStorageKey = (userId:any) => {
-    return userId ? `wishlist_${userId}` : `wishlist_guest`;
-  };
-
-  useEffect(() => {
-    const storedUserId = localStorage.getItem("userId"); 
-    const storageKey = getUniqueStorageKey(storedUserId);
-  
-    const storedWishlist = localStorage.getItem(storageKey);
-    if (storedWishlist) {
-      setLikedItems(JSON.parse(storedWishlist));
-    } else {
-      setLikedItems({});
-    }
-  }, []);
 
   return (
     <section className='md:py-16 py-6'>

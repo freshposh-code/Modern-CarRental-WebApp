@@ -8,7 +8,7 @@ import { HiUsers } from "react-icons/hi2";
 import { displayCurrency } from '@/utils/displayCurrency';
 import { AnimatedModalDemo } from './ModalDemo';
 import { FcLike } from "react-icons/fc";
-import { toast } from 'react-toastify';
+import { useWishlist } from '@/context/WishlistContext';
 
 export interface CategoryData {
   _id: string;
@@ -34,63 +34,8 @@ const BestSection = ({title , desc, category}: {title: string; desc: string; cat
   const [data, setData] = useState<CategoryData[]>([])
   const [loading, setLoading] = useState(true);
   const loadingList = new Array(8).fill(null);
-  const [likedItems, setLikedItems] = useState<{ [key: string]: boolean}>({});
+  const { likedItems, toggleWishlist } = useWishlist();
   const [visibleCount, setVisibleCount] = useState(8);
-
-  useEffect(() => {
-    const storedLikedItems = localStorage.getItem("likedItems");
-    if (storedLikedItems) {
-      setLikedItems(JSON.parse(storedLikedItems));
-    }
-  }, []);
-
-  const toggleWishlist = async (item:Item) => {
-    if (!item?.carName || !item?.carImage || !item?.price) {
-      toast.error("Invalid item details");
-      return;
-    }
-  
-    try {
-      const storedUserId = localStorage.getItem("userId");
-      const storageKey = getUniqueStorageKey(storedUserId);
-  
-      const response = await fetch(`/api/userWishlist`, {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          carName: item.carName,
-          carImage: item.carImage,
-          price: item.price,
-        }),
-      });
-  
-      const data = await response.json();
-  
-      if (response.ok) {
-        const updatedItems = { ...likedItems };
-      
-        if (data.action === "added") {
-          updatedItems[item._id] = true;
-          toast.success(`${item?.carName} added to wishlist`);
-        } else if (data.action === "removed") {
-          delete updatedItems[item._id];
-          toast.success(`${item?.carName} removed from wishlist`);
-        }
-      
-        setLikedItems(updatedItems);
-        localStorage.setItem(storageKey, JSON.stringify(updatedItems));
-
-      } else {
-        toast.error(data.message || "An error occurred");
-      }
-    } catch (error) {
-      console.error("Error toggling wishlist item:", error);
-      toast.error("Failed to update wishlist");
-    }
-  };
 
   const fetchCategory = async () => {
     setLoading(true)
@@ -118,22 +63,6 @@ const BestSection = ({title , desc, category}: {title: string; desc: string; cat
   useEffect(() => {
     fetchCategory()
   }, [category]);
-
-  const getUniqueStorageKey = (userId:any) => {
-    return userId ? `wishlist_${userId}` : `wishlist_guest`;
-  };
-
-  useEffect(() => {
-    const storedUserId = localStorage.getItem("userId"); 
-    const storageKey = getUniqueStorageKey(storedUserId);
-  
-    const storedWishlist = localStorage.getItem(storageKey);
-    if (storedWishlist) {
-      setLikedItems(JSON.parse(storedWishlist));
-    } else {
-      setLikedItems({});
-    }
-  }, []);
 
   const handleShowMore = () => {
     setVisibleCount((prevCount) => prevCount + 8);
