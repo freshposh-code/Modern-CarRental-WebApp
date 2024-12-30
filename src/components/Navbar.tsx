@@ -93,7 +93,7 @@ export default function Navbar() {
 
                 </div>
 
-                <span className="lg:hidden flex cursor-pointer text-xl bg-white dark:bg-black rounded-full p-1 z-[2000] absolute right-16" onClick={() => setOpenWishlist(true)}>
+                <span className="lg:hidden flex cursor-pointer text-xl bg-white dark:bg-black rounded-full p-1 z-[2000] absolute md:right-24 right-16" onClick={() => setOpenWishlist(true)}>
                         <FaRegHeart/>
                     </span>
 
