@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar';
+import { BackgroundBeamsWithCollision } from '@/components/ui/background-beams-with-collision';
 import { abousUs } from '@/utils/Data';
 import Image from 'next/image'
 import { FaPhoneAlt } from "react-icons/fa";
@@ -8,8 +9,9 @@ const aboutUs = () => {
     <>
     <Navbar />
        {/*  SECTION I */}
+       <BackgroundBeamsWithCollision className='flex-col'>
     <section className='md:px-16 px-6'>
-    <div className='flex lg:flex-row flex-col w-full items-center justify-between md:py-16 py-6'>
+    <div className='flex lg:flex-row flex-col w-full items-center justify-between md:py-16 py-8'>
          <div>
           <h1 className='lg:text-7xl md:text-4xl text-2xl font-bold lg:max-w-[870px] w-full lg:py-7 py-3'>Search and find your best car rental with ease way</h1>
           <p className='lg:text-base xm:text-sm text-[10px] lg:max-w-[430px] w-full text-neutral-400 font-semibold'>Drive performance and cross functional collaboration with ease-to-use dashboards, data visualization, and automated insights in one click</p>
@@ -54,16 +56,17 @@ const aboutUs = () => {
  </section>
         {/* SECTION IV */}
        <div className="md:py-16 py-6">
-        <div className="flex justify-between items-center">
-          <Image src='/Pleft.png' alt='sideVew' width={1000} height={1000} className='object-contain lg:w-[450px] w-[200px] lg:h-48 h-32 xs:flex hidden' />
+        <div className="flex">
+          <Image src='/Pleft.png' alt='sideVew' width={1000} height={1000} className='object-contain lg:w-[450px] w-[200px] lg:h-48 h-32 md:flex hidden absolute left-0' />
           <div className='flex justify-center flex-col text-center items-center m-auto'>
             <Image src='/person.png' width={500} height={500} alt='person' className='object-contain lg:size-24 size-12 rounded-full bg-blue-300 py-1' />
             <p className='text-neutral-400 font-semibold lg:text-sm text-xs'>Have any question?</p>
             <p className='text-blue-600 font-bold lg:text-2xl xs:text-xl text-sm'>(007) 123 456 7890</p>
           </div>
-          <Image src='/Pright.png' alt='sideVew' width={1000} height={1000} className='object-contain lg:w-[450px] w-[200px] lg:h-44 h-32 xs:flex hidden' />
+          <Image src='/Pright.png' alt='sideVew' width={1000} height={1000} className='object-contain lg:w-[450px] w-[200px] lg:h-44 h-32 md:flex hidden absolute right-0' />
         </div>
        </div>
+       </BackgroundBeamsWithCollision>
     </>
   )
 }
