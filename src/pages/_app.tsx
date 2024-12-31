@@ -5,11 +5,11 @@ import "@/app/globals.css";
 import { ThemeProvider } from "@/Theme/theme-provider";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Loader from "@/components/Loader";
+import Loader from "@/components/Client/Loader";
 import { useAppSelector } from "@/Redux/hooks";
 import { wrapper } from "@/Redux/store";
 import SessionWrapper from "@/lib/SessionWrapper";
-import Footer from "@/components/Footer";
+import Footer from "@/components/Client/Footer";
 import { UserProvider } from "@/context/UserContext";
 import { WishlistProvider } from "@/context/WishlistContext";
 

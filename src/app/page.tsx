@@ -1,12 +1,12 @@
 'use client'
 
-import BestSection from "@/components/BestSection";
-import DisplayLogo from "@/components/DisplayLogo";
-import Footer from "@/components/Footer";
-import HeroSection from "@/components/HeroSection";
-import Journey from "@/components/Journey";
-import Navbar from "@/components/Navbar";
-import PopularSection from "@/components/PopularSection";
+import BestSection from "@/components/Client/BestSection";
+import DisplayLogo from "@/components/Client/DisplayLogo";
+import Footer from "@/components/Client/Footer";
+import HeroSection from "@/components/Client/HeroSection";
+import Journey from "@/components/Client/Journey";
+import Navbar from "@/components/Client/Navbar";
+import PopularSection from "@/components/Client/PopularSection";
 
 export default function Home() {
   return (

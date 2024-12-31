@@ -1,7 +1,7 @@
 'use client'
 
 import { AdminSidebar } from '@/components/AdminPanel/AdminSidebar';
-import Loader from '@/components/Loader';
+import Loader from '@/components/Client/Loader';
 import { useAppSelector } from '@/Redux/hooks';
 import {  useUserContext } from '@/context/UserContext';
 import { useSession } from 'next-auth/react';
