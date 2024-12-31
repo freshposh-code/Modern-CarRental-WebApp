@@ -1,5 +1,5 @@
-import { TextGenerateEffect } from './ui/text-generate-effect';
-import { TypeEffect } from './ui/typewriter-effect';
+import { TextGenerateEffect } from '../ui/text-generate-effect';
+import { TypeEffect } from '../ui/typewriter-effect';
 import { MdCalendarMonth, MdOutlineLocationOn } from 'react-icons/md';
 import { PiMapPinSimpleAreaFill } from "react-icons/pi";
 import Image from 'next/image';

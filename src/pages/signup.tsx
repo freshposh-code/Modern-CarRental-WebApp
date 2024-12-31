@@ -15,7 +15,7 @@ import { setLoading } from "@/Redux/features/LoadingSlice";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import { signIn, useSession } from 'next-auth/react';
-import Loader from "@/components/Loader";
+import Loader from "@/components/Client/Loader";
 
 interface FormData {
     name: string;

@@ -1,4 +1,4 @@
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/Client/Navbar';
 import { BackgroundBeamsWithCollision } from '@/components/ui/background-beams-with-collision';
 import { abousUs } from '@/utils/Data';
 import Image from 'next/image'
