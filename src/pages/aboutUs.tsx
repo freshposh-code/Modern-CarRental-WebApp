@@ -17,7 +17,7 @@ const aboutUs = () => {
           <p className='lg:text-base xm:text-sm text-[10px] lg:max-w-[430px] w-full text-neutral-400 font-semibold'>Drive performance and cross functional collaboration with ease-to-use dashboards, data visualization, and automated insights in one click</p>
 
           <div className="flex items-center gap-7 lg:py-7 py-3 cursor-pointer">
-          <button className='bg-blue-700 flex items-center gap-2 text-white md:px-6 px-2 md:py-3 py-2 md:text-base text-xs'>Booking now <FaPhoneAlt /></button>
+          <button className='bg-blue-600 flex items-center gap-2 text-white md:px-6 px-2 md:py-3 py-2 md:text-base text-xs'>Booking now <FaPhoneAlt /></button>
           <p className='border-b-2 border-neutral-600 font-bold md:text-base text-xs'>See all cars</p>
           </div>        
          </div>
@@ -35,7 +35,7 @@ const aboutUs = () => {
         <h1 className='font-bold lg:text-4xl text-xl lg:py-2 py-1'>RIVENT</h1>
 
         <div className="border-b-2 border-neutral-500 md:w-12 w-6 m-auto lg:mt-3 mt-1" />
-        <div className="border-b-4 border-blue-700 md:w-28 w-14 m-auto py-[2px]" />
+        <div className="border-b-4 border-blue-600 md:w-28 w-14 m-auto py-[2px]" />
 
         <p className='md:mt-7 mt-4 lg:text-sm text-xs lg:max-w-[1000px] w-full m-auto text-neutral-400 font-medium'>Rivent is the most enticing creative modern and multipurpose auto dealer Premium Website. Suitable for any car dealer website, business or corporate website. The website has been created especially for automotive dealers, car resellers, car service stations mechanic workshop and auto motor retailers.</p>
       </div>
@@ -44,10 +44,10 @@ const aboutUs = () => {
        {/*  SECTION III */}
     <div className="flex flex-wrap justify-around items-center text-center gap-3">
       {abousUs.map((item) => (
-        <div className=''>
+        <div>
           <div className='text-center bg-zinc-200 rounded-full lg:p-4 p-3 md:text-3xl sm:text-2xl text-base w-fit m-auto text-black'>{item.icon}</div>
           <h1 className='font-bold md:text-lg sm:text-base text-sm lg:my-3 my-1'>{item.head}</h1>
-          <div className="border-2 border-blue-700 sm:w-7 w-4 m-auto" />
+          <div className="border-2 border-blue-600 sm:w-7 w-4 m-auto" />
           <p className='text-neutral-400 xl:text-sm lg:text-xs text-[9px] text-center lg:max-w-[300px] max-w-[120px] lg:my-3 my-1'>{item.desc}</p>
         </div>
       ))}

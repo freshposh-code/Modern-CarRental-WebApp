@@ -42,7 +42,7 @@ export default function Navbar() {
         <section className='sm:p-[19px] p-0'>
             <nav className='flex justify-between items-center px-3 sm:py-0 py-4'>
                 <Link href='/' className='flex items-center gap-2 z-[1000]'>
-                    <div className="border-4 border-blue-700 sm:size-12 size-8 rounded-full" />
+                    <div className="border-4 border-blue-600 sm:size-12 size-8 rounded-full" />
                     <h1 className='font-extrabold sm:text-3xl text-2xl'>Rivent</h1>
                 </Link>
 
@@ -51,7 +51,7 @@ export default function Navbar() {
                         <div key={items.name}>
                           {items?.link ? (
                   <Link href={items.link}>
-                        <li className="font-bold text-lg cursor-pointer hover:border-b-[3px] border-[#4258ffe1] duration-200">
+                        <li className="font-bold text-lg cursor-pointer hover:border-b-[3px] border-blue-600 duration-200">
                           {items.name}
                           </li>
                    </Link>

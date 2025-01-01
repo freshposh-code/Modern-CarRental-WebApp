@@ -14,7 +14,7 @@ const Footer = () => {
     <footer className='bg-zinc-900 dark:bg-zinc-800 md:px-16 px-6 py-10 text-zinc-300 md:text-base text-xs'>
       <div className="flex justify-between lg:flex-row flex-col">
           <div className="flex flex-col item-center">
-                    <h1 className='font-extrabold sm:text-3xl text-2xl flex items-center gap-2'> <div className="border-4 border-blue-700 sm:size-12 size-8 rounded-full" />Rivent</h1>
+                    <h1 className='font-extrabold sm:text-3xl text-2xl flex items-center gap-2'> <div className="border-4 border-blue-600 sm:size-12 size-8 rounded-full" />Rivent</h1>
 
                     <div className='lg:flex hidden lg:mt-32 mt-10 lg:py-0 py-5 gap-3'>
                       {footerIcons.map((item, index) => (
