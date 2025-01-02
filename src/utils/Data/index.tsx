@@ -7,7 +7,12 @@ import { AiFillQuestionCircle } from "react-icons/ai";
 import { RiMessage2Fill } from "react-icons/ri";
 import { MdWork } from "react-icons/md";
 import {  BsWalletFill } from "react-icons/bs";
-
+import { PiEngineFill } from "react-icons/pi";
+import { GiOilPump } from "react-icons/gi";
+import { RiCarWashingLine } from "react-icons/ri";
+import { GiAbstract002 } from "react-icons/gi";
+import { SiTransmission } from "react-icons/si";
+import { GiCarWheel } from "react-icons/gi";
 
 export const navbar = [
     {
@@ -276,5 +281,95 @@ export const links = [
       icon: <BsWalletFill />,
       head: 'AFFORDABLE',
       desc: `With a range of models across budgets, these brands provide vehicles that balance cost, efficiency, and performance for everyone.`,
+    },
+  ]
+
+  export const projects = [
+    {
+      icon: <GiOilPump />,
+      title: "Oil changes",
+      description: `This service is essential for maintaining the engine's performance and longevity, as engine oil lubricates moving parts, and prevents overheating by dissipating heat. Over time, oil degrades and collects debris, reducing its effectiveness.`,
+    },
+    {
+      icon: <IoCarSportSharp />,
+      title: "Wash & Clean",
+      description: `A comprehensive car cleaning service enhances appearance and protects the vehicle, removing dirt, grime, and contaminants using specialized cleaners, providing a protective layer to the paintwork, enhancing the car's shine.`,
+    },
+    {
+      icon: <GiAbstract002 />,
+      title: "ABS Breaks",
+      description: `Anti-lock braking system (ABS) maintenance focuses on safety by preventing wheel lock during hard braking. These services aim to keep your vehicle in top condition, ensuring safety, reliability, and longevity.`,
+    },
+    {
+      icon: <SiTransmission />,
+      title: "Transmission",
+      description: `Transmission maintenance focusing on ensuring smooth gear shifting and preventing costly repairs, replacing degraded fluid to ensure proper lubrication, removing debris and contaminants from the transmission system.`,
+    },
+    {
+      icon: <GiCarWheel />,
+      title: "Tires & Wheels",
+      description: `This service includes inspection, rotation, alignment, and replacement of tires and wheels. Proper tire and wheel maintenance ensures safety, improves handling, and extends the lifespan of tires.`,
+    },
+    {
+      icon: <PiEngineFill />,
+      title: "Engine Tuning",
+      description: `Engine tuning optimizes performance by adjusting the engine's parameters. Reprogramming the car's electronic control unit for better fuel efficiency and performance, ensures efficient ignition.`,
+    },
+  ];
+
+  export const packages = [
+    {
+      title: 'Starter',
+      price: '$25',
+      installations: [
+        {pkg: 'Wiper Blade Installation'},
+        {pkg: 'Check Engine Light'},
+        {pkg: 'Air Filter Replacement'},
+        {pkg: 'Starting and charging'},
+        {pkg: 'Engine Flash service'},
+        {pkg: 'Transmission Fluid Service'},
+        {pkg: 'Brake Fluid Exchange'},
+        {pkg: 'Cool Oil Drain amd Fill'},
+        {pkg: 'Headlight Restoration'},
+        {pkg: 'Small Bulb Installation'},
+        {pkg: 'cabin Air Filter Install'},
+        {pkg: 'Spring Maintenance'},
+      ],
+    },
+    {
+      title: 'Advance',
+      price: '$50',
+      installations: [
+        {pkg: 'Spring Maintenance'},
+        {pkg: 'Summer Maintenance'},
+        {pkg: 'Winter Maintenance'},
+        {pkg: 'Smoke test Diagnostics Service'},
+        {pkg: 'A/C System Leak Evaluation'},
+        {pkg: 'Steering and Suspension System Evaluation'},
+        {pkg: 'Cranks No Start Diagnostics Service'},
+        {pkg: '2nd A/C System Repair Evaluation'},
+        {pkg: 'Small Bulb Installation'},
+        {pkg: 'Cranks No Start Diagnostics Service'},
+        {pkg: 'Engine Cooling System Check'},
+        {pkg: 'Headlight restoration'},
+      ],
+    },
+    {
+      title: 'Premium',
+      price: '$100',
+      installations: [
+        {pkg: 'Spring Maintenance'},
+        {pkg: 'Summer Maintenance'},
+        {pkg: 'Winter Maintenance'},
+        {pkg: 'Smoke test Diagnostics Service'},
+        {pkg: 'A/C System Leak Evaluation'},
+        {pkg: 'Steering and Suspension System Evaluation'},
+        {pkg: 'Cranks No Start Diagnostics Service'},
+        {pkg: '2nd A/C System Repair Evaluation'},
+        {pkg: 'Small Bulb Installation'},
+        {pkg: 'Cranks No Start Diagnostics Service'},
+        {pkg: 'Engine Cooling System Check'},
+        {pkg: 'Headlight restoration'},
+      ],
     },
   ]
