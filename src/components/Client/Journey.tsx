@@ -13,7 +13,7 @@ const Journey = ({title, desc}:{title:string; desc:string}) => {
         </div>
 
         <div className="overflow-scroll scrollbar-none">
-        <div className='mt-7 grid grid-cols-3 lg:gap-8 gap-3 sm:w-full w-[550px]'>
+        <div className='mt-7 grid grid-cols-3 lg:gap-8 gap-3 lg:w-full md:w-[760px] w-[550px]'>
         {journey.map((item) => (      
             <div key={item.date} className='rounded-lg'>
                 <Image src={item.img} alt='GTcar' width={500} height={500} className='md:h-[210px] h-[130px] object-cover rounded-t-lg' />
