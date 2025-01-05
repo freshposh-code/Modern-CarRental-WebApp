@@ -113,6 +113,28 @@ th {
   }
 }
 
+/* @keyframes shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+} */
+
+.shimmer {
+  background: linear-gradient(
+    to right,
+    #9a9a9a  0%,
+    #898989 20%,
+    #696969 40%,
+    #585858a2 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+
 @layer base {
   :root {
     --background: 0 0% 100%;
