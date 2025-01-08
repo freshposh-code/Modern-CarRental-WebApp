@@ -70,7 +70,7 @@ export default function HeroSection() {
                             </div>
                         </div>
                     </div>
-                    <PiMapPinSimpleAreaFill className='text-6xl bg-blue-600 text-white p-4 rounded-full' />
+                    <PiMapPinSimpleAreaFill className='text-6xl bg-blue-600 dark:bg-blue-700 text-white p-4 rounded-full' />
                 </motion.div>
 
                 <motion.div
