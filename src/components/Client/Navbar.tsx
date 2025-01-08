@@ -16,12 +16,14 @@ import { signOut, useSession } from 'next-auth/react';
 import { navbar } from '@/utils/Data';
 import { FaRegHeart } from "react-icons/fa";
 import Wishlist from './Wishlist';
+import { useWishlist } from '@/context/WishlistContext';
 
 export default function Navbar() {
     const { user, setUser } = useUserContext();
     const [open, setOpen] = useState(false);
     const [openWishlist, setOpenWishlist] = useState(false);
     const { data: session } = useSession();
+    const { wishlistCount } = useWishlist();
 
     const logout = async () => {
         try {
@@ -42,7 +44,7 @@ export default function Navbar() {
         <section className='sm:p-[19px] p-0'>
             <nav className='flex justify-between items-center px-3 sm:py-0 py-4'>
                 <Link href='/' className='flex items-center gap-2 z-[1000]'>
-                    <div className="border-4 border-blue-600 sm:size-12 size-8 rounded-full" />
+                    <div className="border-4 border-blue-700 sm:size-12 size-8 rounded-full" />
                     <h1 className='font-extrabold sm:text-3xl text-2xl'>Rivent</h1>
                 </Link>
 
@@ -69,9 +71,14 @@ export default function Navbar() {
                         <ModeToggle />
                         </div>
 
-                        <span className="cursor-pointer text-2xl bg-white dark:bg-black rounded-full p-2" onClick={() => setOpenWishlist(true)}>
+                        <div className="relative">
+                        <div className="cursor-pointer text-2xl bg-white dark:bg-black p-2 rounded-full" onClick={() => setOpenWishlist(true)}>
                         <FaRegHeart/>
-                        </span>
+                        </div>
+                        {wishlistCount > 0 && (
+                         <span className='bg-blue-700 text-white size-5 text-sm rounded-full flex items-center justify-center font-bold absolute -top-2 left-6'>{wishlistCount}</span>
+                            )}
+                         </div>
 
                          {(session?.user?.role === ROLE.ADMIN || user?.role === ROLE.ADMIN) &&
                         <Link href='/admin/dashboard'><span className='cursor-pointer'><MdAdminPanelSettings className='bg-white dark:bg-black p-2 text-[40px] rounded-full' /></span>
@@ -93,9 +100,12 @@ export default function Navbar() {
 
                 </div>
 
-                <span className="lg:hidden flex cursor-pointer text-xl bg-white dark:bg-black rounded-full p-1 z-[2000] absolute md:right-24 right-16" onClick={() => setOpenWishlist(true)}>
-                        <FaRegHeart/>
-                    </span>
+                <div className="lg:hidden flex cursor-pointer text-xl bg-white dark:bg-black rounded-full p-1 z-[2000] absolute md:right-24 right-16" onClick={() => setOpenWishlist(true)}>
+                    <FaRegHeart/>
+                    </div>
+                    {wishlistCount > 0 && (
+                         <span className='bg-blue-700 text-white size-5 rounded-full lg:hidden flex items-center justify-center font-bold absolute md:right-20 right-14 md:top-5 top-1 text-xs z-[2000]'>{wishlistCount}</span>
+                            )}
 
                 <div className='lg:hidden flex text-2xl cursor-pointer' onClick={() => setOpen((prev) => !prev)}>
                     <div className='flex items-center gap-5 z-[2000]'>
