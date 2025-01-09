@@ -129,20 +129,20 @@ const SignIn = () => {
                             <div>
                                 <Image className="absolute -top-20" src='/GTpng.png' alt="GTpng" width={1000} height={1000} />
                             </div>
-                            <label className="font-medium">Name</label>
+                            <label className="font-medium xs:text-base text-sm">Name</label>
                             <div className="flex items-center bg-slate-200 dark:bg-zinc-600 my-[6px] rounded-[22px]">
                                 <CiUser className="text-[32px] pl-3" />
-                                <input className="outline-none w-full bg-transparent p-3" type="text" name="name" value={data.name} onChange={handleOnChange} placeholder="Your name" required />
+                                <input className="outline-none w-full bg-transparent p-3 xs:text-base text-xs" type="text" name="name" value={data.name} onChange={handleOnChange} placeholder="Your name" required />
                             </div>
-                            <label className="font-medium">Email</label>
+                            <label className="font-medium xs:text-base text-sm">Email</label>
                             <div className="flex items-center bg-slate-200 dark:bg-zinc-600 my-1 rounded-[22px]">
                                 <MdOutlineMailOutline className="text-[32px] pl-3" />
-                                <input className="outline-none w-full bg-transparent p-3" type="email" name="email" value={data.email} onChange={handleOnChange} placeholder="Email address" required />
+                                <input className="outline-none w-full bg-transparent p-3 xs:text-base text-xs" type="email" name="email" value={data.email} onChange={handleOnChange} placeholder="Email address" required />
                             </div>
-                            <label className="font-medium">Password</label>
+                            <label className="font-medium xs:text-base text-sm">Password</label>
                             <div className="flex items-center bg-slate-200 dark:bg-zinc-600 my-1 rounded-[22px] cursor-pointer">
                                 <CiLock className="text-[32px] pl-3" />
-                                <input className="outline-none w-full bg-transparent p-3" type={passswordIcon ? "text" : "password"} name="password" value={data.password} onChange={handleOnChange} placeholder="Password" required />
+                                <input className="outline-none w-full bg-transparent p-3 xs:text-base text-xs" type={passswordIcon ? "text" : "password"} name="password" value={data.password} onChange={handleOnChange} placeholder="Password" required />
                                 <span onClick={() => setPassswordIcon((prev) => !prev)}>
                                     {
                                         passswordIcon ?
@@ -150,10 +150,10 @@ const SignIn = () => {
                                     }
                                 </span>
                             </div>
-                            <label className="font-medium">Confirm password</label>
+                            <label className="font-medium xs:text-base text-sm">Confirm password</label>
                             <div className="flex items-center bg-slate-200 dark:bg-zinc-600 my-1 rounded-[22px] cursor-pointer">
                                 <CiLock className="text-[32px] pl-3" />
-                                <input className="outline-none w-full bg-transparent p-3" type={confirmPassswordIcon ? "text" : "password"} name="confirmPassword" value={data.confirmPassword} onChange={handleOnChange} placeholder="confirmPassword" required />
+                                <input className="outline-none w-full bg-transparent p-3 xs:text-base text-xs" type={confirmPassswordIcon ? "text" : "password"} name="confirmPassword" value={data.confirmPassword} onChange={handleOnChange} placeholder="confirmPassword" required />
                                 <span onClick={() => setConfirmPassswordIcon((prev) => !prev)}>
                                     {
                                         confirmPassswordIcon ?
@@ -171,7 +171,7 @@ const SignIn = () => {
 
                             <span className="border-2 dark:border-slate-200 w-full flex justify-center items-center py-1 my-2 rounded-[22px] gap-1 cursor-pointer" onClick={() => signIn('google')}>
                                 <FcGoogle className="text-4xl cursor-pointer" />
-                                <p className="text-blue-600 dark:text-blue-500 font-bold">Sign up using Google</p>
+                                <p className="text-blue-600 dark:text-blue-500 font-bold xs:text-base text-sm">Sign up using Google</p>
                             </span>
 
                             <p className="text-center text-sm my-2 font-semibold dark:text-slate-100">Already member?

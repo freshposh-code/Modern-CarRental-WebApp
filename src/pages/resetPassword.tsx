@@ -69,7 +69,7 @@ const resetPassword = () => {
                             onChange={(e) => setPassword(e.target.value)}
                             placeholder="Enter new password"
                             required
-                            className='outline-none px-3 w-full bg-transparent'
+                            className='outline-none px-3 w-full bg-transparent text-sm'
                         />
                         <div className='cursor-pointer text-xl p-2' onClick={() => setPasswordOpen(prev => !prev)}>
                          {passwordOpen ? <FaEyeSlash /> : <FaEye /> }
@@ -86,7 +86,7 @@ const resetPassword = () => {
                             onChange={(e) => setConfirmPassword(e.target.value)}
                             placeholder="Confirm new password"
                             required
-                            className='outline-none px-3 bg-transparent'
+                            className='outline-none px-3 bg-transparent text-sm'
                         />
                         <div className='cursor-pointer text-xl p-2' onClick={() => setConfirmPasswordOpen(prev => !prev)}>
                             {confirmPasswordOpen ? <FaEyeSlash /> : <FaEye /> }

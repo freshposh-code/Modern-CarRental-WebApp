@@ -51,7 +51,7 @@ export default function forgotPassword() {
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="Enter your email"
                         required
-                        className='outline-none w-full rounded-3xl py-2 px-3'
+                        className='outline-none w-full rounded-3xl py-2 px-3 sm:text-sm text-xs'
                     />
                 </BackgroundGradient>
                     <button className='bg-blue-600 w-fit m-auto px-5 py-2 my-3 text-white font-bold rounded-md hover:bg-blue-400 lg:text-base text-sm' type="submit">Submit</button>
