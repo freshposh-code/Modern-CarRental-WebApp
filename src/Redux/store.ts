@@ -1,9 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { LoadingSlice } from "./features/LoadingSlice";
+import forgotPasswordReducer from './features/forgotPasswordSlice';
+import resetPasswordReducer from './features/resetPasswordSlice';
 import { createWrapper } from "next-redux-wrapper";
 
 const rootReducer = {
     loadingSlice: LoadingSlice.reducer,
+    forgotPassword: forgotPasswordReducer,
+    resetPassword: resetPasswordReducer,
 };
 
 export const makeStore = () => {
