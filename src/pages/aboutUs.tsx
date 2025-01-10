@@ -57,13 +57,13 @@ const aboutUs = () => {
         {/* SECTION IV */}
        <div className="md:py-16 py-6">
         <div className="flex">
-          <Image src='/Pleft.png' alt='sideVew' width={1000} height={1000} className='object-contain lg:w-[450px] w-[200px] lg:h-48 h-32 md:flex hidden absolute left-0' />
+          <Image src='/Pleft.png' alt='sideVew' width={1000} height={1000} className='object-contain lg:w-[450px] w-[200px] lg:h-48 h-32 md:flex hidden absolute -left-56' />
           <div className='flex justify-center flex-col text-center items-center m-auto'>
             <Image src='/person.png' width={500} height={500} alt='person' className='object-contain lg:size-24 size-12 rounded-full bg-blue-300 py-1' />
             <p className='text-neutral-400 font-semibold lg:text-sm text-xs'>Have any question?</p>
             <p className='text-blue-600 font-bold lg:text-2xl xs:text-xl text-sm'>(007) 123 456 7890</p>
           </div>
-          <Image src='/Pright.png' alt='sideVew' width={1000} height={1000} className='object-contain lg:w-[450px] w-[200px] lg:h-44 h-32 md:flex hidden absolute right-0' />
+          <Image src='/Pright.png' alt='sideVew' width={1000} height={1000} className='object-contain lg:w-[450px] w-[200px] lg:h-44 h-32 md:flex hidden absolute -right-56' />
         </div>
        </div>
        </BackgroundBeamsWithCollision>
