@@ -60,7 +60,7 @@ const Footer = () => {
                   {navbar.map((item) =>(
                     <div key={item.link}>
                       <Link href={item.link}>
-                      <span className='hover:text-blue-600 duration-200'>{item.name}</span>
+                      <span className='hover:text-blue-500 duration-200'>{item.name}</span>
                       </Link>
                     </div>
                   ) )}
