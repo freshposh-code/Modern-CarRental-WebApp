@@ -13,7 +13,7 @@ const aboutUs = () => {
     <section className='md:px-16 px-6'>
     <div className='flex lg:flex-row flex-col w-full items-center justify-between md:py-16 py-8'>
          <div>
-          <h1 className='lg:text-7xl md:text-4xl text-2xl font-bold lg:max-w-[870px] w-full lg:py-7 py-3'>Search and find your best car rental with ease way</h1>
+          <h1 className='lg:text-7xl md:text-4xl text-2xl font-bold lg:max-w-[1000px] w-full lg:py-7 py-3'>Search and find your best car rental with ease way</h1>
           <p className='lg:text-base xm:text-sm text-[10px] lg:max-w-[430px] w-full text-neutral-400 font-semibold'>Drive performance and cross functional collaboration with ease-to-use dashboards, data visualization, and automated insights in one click</p>
 
           <div className="flex items-center gap-7 lg:py-7 py-3 cursor-pointer">
@@ -23,12 +23,12 @@ const aboutUs = () => {
          </div>
 
          <div>
-          <Image src='/iris.png' alt='pngIamge' width={1000} height={1000} className='max-w-full' />
+          <Image src='/iris.png' alt='pngIamge' width={1000} height={1000} className='max-w-full md:ml-40 ml-24' />
          </div>
     </div>
 
      {/*  SECTION II */}
-    <div className='md:py-16 py-6'>
+    <div className='py-6'>
       <div className='text-center'>
         <p className='text-neutral-400 font-semibold sm:text-sm text-xs'>Welcome to our website</p>
 
@@ -57,13 +57,13 @@ const aboutUs = () => {
         {/* SECTION IV */}
        <div className="md:py-16 py-6">
         <div className="flex">
-          <Image src='/Pleft.png' alt='sideVew' width={1000} height={1000} className='object-contain lg:w-[450px] w-[200px] lg:h-48 h-32 md:flex hidden absolute -left-56' />
+          <Image src='/Pleft.png' alt='sideVew' width={1000} height={1000} className='object-contain lg:w-[450px] w-[200px] lg:h-48 h-32 md:flex hidden absolute -left-52' />
           <div className='flex justify-center flex-col text-center items-center m-auto'>
             <Image src='/person.png' width={500} height={500} alt='person' className='object-contain lg:size-24 size-12 rounded-full bg-blue-300 py-1' />
             <p className='text-neutral-400 font-semibold lg:text-sm text-xs'>Have any question?</p>
             <p className='text-blue-600 font-bold lg:text-2xl xs:text-xl text-sm'>(007) 123 456 7890</p>
           </div>
-          <Image src='/Pright.png' alt='sideVew' width={1000} height={1000} className='object-contain lg:w-[450px] w-[200px] lg:h-44 h-32 md:flex hidden absolute -right-56' />
+          <Image src='/Pright.png' alt='sideVew' width={1000} height={1000} className='object-contain lg:w-[450px] w-[200px] lg:h-44 h-32 md:flex hidden absolute -right-52' />
         </div>
        </div>
        </BackgroundBeamsWithCollision>
