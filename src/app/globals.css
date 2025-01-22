@@ -93,6 +93,14 @@ th {
   @apply bg-white/50 dark:bg-black/50 bg-clip-padding backdrop-filter backdrop-blur bg-opacity-50 opacity-100 z-[4000] shadow-sm shadow-slate-100 transition-all duration-300;
 }
 
+.transformS {
+  background-color: '';
+}
+
+.transformS:hover {
+  transform: scale(1.03);
+}
+
 @keyframes rotation {
   0% {
     transform: rotate(0deg);
