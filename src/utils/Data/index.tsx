@@ -373,3 +373,33 @@ export const links = [
       ],
     },
   ]
+
+  export const period = [
+    {
+      select: 'Select your type',
+      booking: 'Location',
+    },
+    {
+      select: 'Select your type',
+      booking: 'Date',
+    },
+    {
+      select: 'Select your type',
+      booking: 'Time',
+    },
+  ]
+
+  export const periodII = [
+    {
+      select: 'Select your type',
+      booking: 'Location',
+    },
+    {
+      select: 'Select your type',
+      booking: 'Date',
+    },
+    {
+      select: 'Select your type',
+      booking: 'Time',
+    },
+  ]
