@@ -19,7 +19,7 @@ const config: Config = {
 		},
 		extend: {
 			screens: {
-				xm: "321px",
+				xm: "345px",
 				xr: "407px",
 				xs: "480px",
 			},
