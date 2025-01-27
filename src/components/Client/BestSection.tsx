@@ -80,7 +80,7 @@ const BestSection = ({title , desc, category}: {title: string; desc: string; cat
         <div className='py-6 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-2 place-items-center animate-pulse'>
         {loadingList.map((_, index) => (
            <div key={index} className='md:px-2 px-1 my-3'>
-           <div className='bg-gray-300 dark:bg-gray-400 lg:w-80 md:w-72 xm:w-40 w-36 p-3 rounded-md'>
+           <div className='bg-gray-300 dark:bg-gray-400 lg:w-80 md:w-72 xm:w-40 w-32 p-3 rounded-md'>
          <div className="flex justify-between items-center">
            <div className='md:px-14 px-8 md:py-3 py-2 bg-gray-400 dark:bg-gray-500 rounded-full'/>
          <div className="md:p-3 p-2 rounded-full bg-gray-400 dark:bg-gray-500"/>
@@ -159,7 +159,7 @@ const BestSection = ({title , desc, category}: {title: string; desc: string; cat
             <div className='py-6 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-2 place-items-center animate-pulse'>
             {loadingList.map((_, index) => (
                <div key={index} className='md:px-2 px-1 my-3'>
-               <div className='bg-gray-300 dark:bg-gray-400 lg:w-80 md:w-72 xm:w-40 w-36 p-3 rounded-md'>
+               <div className='bg-gray-300 dark:bg-gray-400 lg:w-80 md:w-72 xm:w-40 w-32 p-3 rounded-md'>
              <div className="flex justify-between items-center">
                <div className='md:px-14 px-8 md:py-3 py-2 bg-gray-400 dark:bg-gray-500 rounded-full'/>
              <div className="md:p-3 p-2 rounded-full bg-gray-400 dark:bg-gray-500"/>
