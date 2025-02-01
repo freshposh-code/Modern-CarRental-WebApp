@@ -123,6 +123,7 @@ export const links = [
     { id: 11, type: "sport", value: "sport" },
     { id: 12, type: "suv", value: "suv" },
     { id: 13, type: "supercar", value: "supercar" },
+    { id: 14, type: "Luxury Sedan", value: "Luxury Sedan" },
   ];
 
   export const categories = [
