@@ -12,6 +12,7 @@ import SessionWrapper from "@/lib/SessionWrapper";
 import Footer from "@/components/Client/Footer";
 import { UserProvider } from "@/context/UserContext";
 import { WishlistProvider } from "@/context/WishlistContext";
+import { BookingProvider } from "@/context/BookingContext";
 
 function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     const { store, props } = wrapper.useWrappedStore(pageProps);
@@ -21,6 +22,7 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
         <>
         <UserProvider>
             <WishlistProvider>
+                <BookingProvider>
         <div className="bg-zinc-100 dark:bg-zinc-900">
         <SessionWrapper session={session}>
             <ThemeProvider
@@ -44,6 +46,7 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
             {isLoading && <Loader />}
             <Footer/>
             </div>
+            </BookingProvider>
             </WishlistProvider>
             </UserProvider>
         </>
