@@ -140,7 +140,7 @@ const BestSection = ({title , desc, category}: {title: string; desc: string; cat
           <div className="flex items-center justify-between">
             <h1 className='font-bold lg:text-base md:text-sm text-[8px]'>{displayCurrency(item?.price)}<span className='font-normal'>/day</span></h1>
             <span>
-            <AnimatedModalDemo data={item} />
+            <AnimatedModalDemo data={item} carItems={{ _id: item._id, carName: item.carName, carImage: item.carImage, startDate: "", endDate: "", price: item.price.toString() }} />
             </span>
           </div>
           </div>

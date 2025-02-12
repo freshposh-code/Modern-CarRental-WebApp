@@ -31,7 +31,17 @@ type Item = {
   price: number;
 };
 
-const PopularSection = ({title , desc, category}: {title: string; desc: string; category: string; item?: Item;}) => {
+ export type BookingItem = {
+  _id: string;
+  carName: string;
+  carImage: string[];
+  startDate: string;
+  endDate: string;
+  price: string;
+};
+
+const PopularSection = ({title , desc, category, carItems}: {title: string; desc: string; category: string; item?: Item; carItems: BookingItem}) => {
+  console.log("PopularSection carItems:", carItems);
   const [data, setData] = useState<CategoryData[]>([])
   const [loading, setLoading] = useState(true);
   const loadingList = new Array(12).fill(null);
@@ -138,7 +148,7 @@ const PopularSection = ({title , desc, category}: {title: string; desc: string; 
           <div className="flex items-center justify-between">
             <h1 className='font-bold md:text-base text-[10px]'>{displayCurrency(item?.price)}<span className='font-normal'>/day</span></h1>
             <span>
-            <AnimatedModalDemo data={item} />
+            <AnimatedModalDemo data={item}  carItems={{ _id: item._id, carName: item.carName, carImage: item.carImage, startDate: "", endDate: "", price: item.price.toString() }}  />
             </span>
           </div>
           </div>
