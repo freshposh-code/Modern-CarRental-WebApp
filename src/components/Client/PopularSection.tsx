@@ -40,7 +40,7 @@ type Item = {
   price: string;
 };
 
-const PopularSection = ({title , desc, category, carItems}: {title: string; desc: string; category: string; item?: Item; carItems: BookingItem}) => {
+const PopularSection = ({title , desc, category, carItems}: {title: string; desc: string; category: string; item?: Item; carItems?: BookingItem}) => {
   console.log("PopularSection carItems:", carItems);
   const [data, setData] = useState<CategoryData[]>([])
   const [loading, setLoading] = useState(true);
