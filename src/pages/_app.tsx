@@ -13,43 +13,64 @@ import Footer from "@/components/Client/Footer";
 import { UserProvider } from "@/context/UserContext";
 import { WishlistProvider } from "@/context/WishlistContext";
 import { BookingProvider } from "@/context/BookingContext";
+import BookingButton from "@/components/Client/BookingButton";
 
 function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
-    const { store, props } = wrapper.useWrappedStore(pageProps);
+    const { props } = wrapper.useWrappedStore(pageProps);
     const isLoading = useAppSelector(store => store.loadingSlice);
-
+    
     return (
         <>
-        <UserProvider>
-            <WishlistProvider>
-                <BookingProvider>
-        <div className="bg-zinc-100 dark:bg-zinc-900">
-        <SessionWrapper session={session}>
-            <ThemeProvider
-                attribute="class"
-                defaultTheme="system"
-                enableSystem
-                disableTransitionOnChange
-            >
-                <Component {...props} />
-            </ThemeProvider>
-            <ToastContainer
-                position="top-center"
-                toastStyle={{
-                    backgroundColor: '#868686',
-                    color: '#fff',
-                    borderRadius: '22px',
-                    fontSize: '14px',
-                }}
-            />
-            </SessionWrapper>
-            {isLoading && <Loader />}
-            <Footer/>
-            </div>
-            </BookingProvider>
-            </WishlistProvider>
+            <UserProvider>
+                <WishlistProvider>
+                    <BookingProvider>
+                        <AppContent 
+                            Component={Component} 
+                            props={props} 
+                            session={session} 
+                            isLoading={isLoading}
+                        />
+                    </BookingProvider>
+                </WishlistProvider>
             </UserProvider>
         </>
     );
 }
+
+function AppContent({ Component, props, session, isLoading }: {
+    Component: any;
+    props: any;
+    session: any;
+    isLoading: boolean;
+}) {
+    return (
+        <>
+            <div className="bg-zinc-100 dark:bg-zinc-900">
+                <SessionWrapper session={session}>
+                    <ThemeProvider
+                        attribute="class"
+                        defaultTheme="system"
+                        enableSystem
+                        disableTransitionOnChange
+                    >
+                        <Component {...props} />
+                    </ThemeProvider>
+                    <ToastContainer
+                        position="top-center"
+                        toastStyle={{
+                            backgroundColor: '#868686',
+                            color: '#fff',
+                            borderRadius: '22px',
+                            fontSize: '14px',
+                        }}
+                    />
+                </SessionWrapper>
+                {isLoading && <Loader />}
+                <Footer/>
+            </div>
+            <BookingButton />
+        </>
+    );
+}
+
 export default wrapper.withRedux(App);

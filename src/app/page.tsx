@@ -1,6 +1,7 @@
 'use client'
 
 import BestSection from "@/components/Client/BestSection";
+import BookingButton from "@/components/Client/BookingButton";
 import DisplayLogo from "@/components/Client/DisplayLogo";
 import Footer from "@/components/Client/Footer";
 import HeroSection from "@/components/Client/HeroSection";
@@ -14,6 +15,7 @@ export default function Home() {
       <div className="hero-gradient dark:bg-gradient-to-b from-[rgba(182,195,255,0.85)] via-[#5860a7] to-[#202754] contrast-200 lg:h-screen h-auto rounded-b-[35rem]">
           <Navbar />
           <HeroSection />
+
       </div>
       <div className="md:px-16 px-6 xl:mt-[10rem] mt-0">
           <DisplayLogo />
@@ -27,6 +29,7 @@ export default function Home() {
           <div className="mt-16">
         <Footer/>
         </div>
+        <BookingButton />
     </>
   )
 }
