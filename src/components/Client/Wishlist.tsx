@@ -3,8 +3,8 @@
 import { useWishlist } from '@/context/WishlistContext';
 import { displayCurrency } from '@/utils/displayCurrency';
 import { useEffect, useState } from 'react';
-import { AiOutlineClose } from 'react-icons/ai';
 import { FcLike } from 'react-icons/fc';
+import { MdCancel } from 'react-icons/md';
 
 interface WishlistItem {
   _id: string;
@@ -15,7 +15,7 @@ interface WishlistItem {
 
 const Wishlist = ({ callFunc, userId }: { callFunc: () => void; userId: string }) => {
   const [data, setData] = useState<WishlistItem[]>([]);
-   const { likedItems, removeFromWishlist, fetchWishlist } = useWishlist();
+   const { removeFromWishlist, fetchWishlist } = useWishlist();
 
    useEffect(() => {
     const loadWishlist = async () => {
@@ -26,12 +26,18 @@ const Wishlist = ({ callFunc, userId }: { callFunc: () => void; userId: string }
     if (userId) loadWishlist();
   }, [userId, fetchWishlist]);
 
+  const handleOverlayClick = (e: React.MouseEvent) => {
+    if(e.target === e.currentTarget) {
+      callFunc()
+    }
+  }
+
   return (
-    <section className={`fixed blur-theme w-full h-full inset-0`}>
-      <div className="bg-white dark:bg-black xl:w-[25%] w-full h-screen absolute right-0 text-2xl overflow-auto">
+    <section className={`fixed blur-theme w-full h-full inset-0`} onClick={handleOverlayClick}>
+      <div className="bg-white dark:bg-black xl:w-[25%] w-full h-screen absolute right-0 text-2xl overflow-auto rounded-l-[2rem]">
         <div className="flex justify-between items-center m-5">
-          <h1 className="font-bold">Wishlist</h1>
-          <AiOutlineClose className="bg-blue-700 rounded-full text-white cursor-pointer hover:scale-90" onClick={callFunc} />
+          <h1 className="font-semibold text-lg">Wishlist</h1>
+          <MdCancel className="bg-blue-700 rounded-full text-white cursor-pointer hover:scale-90" onClick={callFunc} />
         </div>
 
         {data.length > 0 ? (

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+
 import {
   Modal,
   ModalBody,
@@ -9,13 +9,27 @@ import {
 } from "../ui/animated-modal";
 import { motion } from "framer-motion";
 import { IoIosCar } from "react-icons/io";
-import { CategoryData } from "./PopularSection";
+import { BookingItem, CategoryData } from "./PopularSection";
+import { Item, useBookingContext } from "@/context/BookingContext";
+import { useState } from "react";
 
-interface ItemsData {
-  data: CategoryData;
-}
+export function AnimatedModalDemo({data, carItems}: {data: CategoryData; carItems: BookingItem}) {
+  
+  const { handleBooking } = useBookingContext();
 
-export function AnimatedModalDemo({data}: ItemsData) {
+  const handleBookingClick = () => {
+    const bookingItem: Item = {
+      _id: data._id,
+      carName: data.carName,
+      carImage: data.carImage,
+      startDate: carItems?.startDate || new Date().toISOString(),
+      endDate: carItems?.endDate || new Date().toISOString(),
+      price: data.price.toString()
+    };
+    
+    handleBooking(bookingItem);
+  };
+
   return (
     <div className="flex items-center justify-center">
       <Modal>
@@ -84,13 +98,14 @@ export function AnimatedModalDemo({data}: ItemsData) {
               </div>
             </div>
 
-            <div className="">
+            <div>
               <h1 className="md:text-sm text-xs py-2 font-normal font-serif">{data?.description}</h1>
             </div>
           </ModalContent>
           
           <ModalFooter className="gap-4">
-            <button className="bg-black text-white dark:bg-white dark:text-black text-sm md:px-2 px-1 md:py-2 py-1 rounded-md border border-black hover:scale-75">
+            <button className="bg-black text-white dark:bg-white dark:text-black text-sm md:px-2 px-1 md:py-2 py-1 rounded-md border border-black hover:scale-75" 
+              onClick={handleBookingClick}>
               Book Now
             </button>
           </ModalFooter>
