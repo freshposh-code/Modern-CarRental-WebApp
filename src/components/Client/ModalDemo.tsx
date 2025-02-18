@@ -11,7 +11,6 @@ import { motion } from "framer-motion";
 import { IoIosCar } from "react-icons/io";
 import { BookingItem, CategoryData } from "./PopularSection";
 import { Item, useBookingContext } from "@/context/BookingContext";
-import { useState } from "react";
 
 export function AnimatedModalDemo({data, carItems}: {data: CategoryData; carItems: BookingItem}) {
   
