@@ -51,7 +51,7 @@ const Wishlist = ({ callFunc, userId }: { callFunc: () => void; userId: string }
                   </span>
                 </div>
                 <span>
-                  <img src={item.carImage[0]} alt="carImage" className="sm:w-28 w-20 h-20 m-auto flex justify-center object-contain" />
+                  <img src={item.carImage[0]} alt="carImage" className="sm:w-24 w-20 h-20 m-auto flex justify-center object-contain" />
                 </span>
                 <p className="text-xs font-medium">{displayCurrency(item.price)}</p>
               </div>
