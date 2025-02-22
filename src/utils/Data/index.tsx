@@ -1,4 +1,5 @@
 import { IoCarSportSharp } from "react-icons/io5";
+import { IoBookSharp } from "react-icons/io5";
 import { MdDashboard } from "react-icons/md";
 import { AiFillAliwangwang } from "react-icons/ai";
 import { AiFillAlipayCircle } from "react-icons/ai";
@@ -7,9 +8,8 @@ import { AiFillQuestionCircle } from "react-icons/ai";
 import { RiMessage2Fill } from "react-icons/ri";
 import { MdWork } from "react-icons/md";
 import {  BsWalletFill } from "react-icons/bs";
-import { PiEngineFill } from "react-icons/pi";
+import {  PiEngineFill } from "react-icons/pi";
 import { GiOilPump } from "react-icons/gi";
-import { RiCarWashingLine } from "react-icons/ri";
 import { GiAbstract002 } from "react-icons/gi";
 import { SiTransmission } from "react-icons/si";
 import { GiCarWheel } from "react-icons/gi";
@@ -44,6 +44,12 @@ export const links = [
       label: "Car vault",
       href: "/admin/carvault",
       icon:  <IoCarSportSharp className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+    
+    },
+    {
+      label: "Bookings",
+      href: "/admin/bookings",
+      icon:  <IoBookSharp className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
     
     },
   ];
