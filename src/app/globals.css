@@ -210,3 +210,25 @@ th {
     font-weight: bold;
   }
 }
+@media (max-width: 868px) {
+  .table-responsiveII thead {
+    display: none;
+  }
+
+  .table-responsiveII tr,
+  td {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    text-align: right;
+  }
+
+  .table-responsiveII td::before {
+    content: attr(label-as);
+    position: absolute;
+    top: 1;
+    right: 1;
+    font-weight: bold;
+  }
+}
