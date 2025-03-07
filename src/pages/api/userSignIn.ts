@@ -39,7 +39,7 @@ const userSignInController = async (req: NextApiRequest, res: NextApiResponse) =
         };
 
         const token = jwt.sign(tokenData, process.env.NEXT_PUBLIC_APP_TOKEN_SECRET_KEY as string, {
-            expiresIn: "10h",
+            expiresIn: "7days",
         });
 
         // Define cookie options
@@ -47,7 +47,7 @@ const userSignInController = async (req: NextApiRequest, res: NextApiResponse) =
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
             sameSite: "Strict" as const,
-            maxAge: 10 * 60 * 60 * 1000,
+            maxAge: 7 * 24 * 60 * 60 * 1000
         };
 
         // Set the cookie and respond with the token
