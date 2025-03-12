@@ -14,6 +14,7 @@ import { UserProvider } from "@/context/UserContext";
 import { WishlistProvider } from "@/context/WishlistContext";
 import { BookingProvider } from "@/context/BookingContext";
 import BookingButton from "@/components/Client/BookingButton";
+import { useRouter } from "next/router";
 
 function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     const { props } = wrapper.useWrappedStore(pageProps);
@@ -37,12 +38,15 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     );
 }
 
+
 function AppContent({ Component, props, session, isLoading }: {
     Component: any;
     props: any;
     session: any;
     isLoading: boolean;
 }) {
+    const router = useRouter();
+    const hideComponents = ["/login", "/signup"].includes(router.pathname);
     return (
         <>
             <div className="bg-zinc-100 dark:bg-zinc-900">
@@ -66,9 +70,9 @@ function AppContent({ Component, props, session, isLoading }: {
                     />
                 </SessionWrapper>
                 {isLoading && <Loader />}
-                <Footer/>
+                {!hideComponents && <Footer />}
             </div>
-            <BookingButton />
+          {!hideComponents && <BookingButton />}
         </>
     );
 }
