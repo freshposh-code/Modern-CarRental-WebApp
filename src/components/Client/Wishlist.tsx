@@ -45,7 +45,7 @@ const Wishlist = ({ callFunc, userId }: { callFunc: () => void; userId: string }
             {data.map((item) => (
               <div key={item._id} className="bg-zinc-200 dark:bg-zinc-800 p-2 rounded-lg">
                 <div className="flex justify-between items-center">
-                  <h1 className="text-sm font-bold">{item.carName}</h1>
+                  <h1 className="lg:text-sm text-xs font-bold">{item.carName}</h1>
                   <span onClick={() => removeFromWishlist(item._id)} className="text-sm cursor-pointer bg-gray-300 p-1 rounded-full">
                     <FcLike />
                   </span>
