@@ -72,7 +72,7 @@ export default function Navbar() {
                         </div>
 
                         <div className="relative">
-                        <div className="cursor-pointer text-2xl bg-white dark:bg-black p-2 rounded-full" onClick={() => setOpenWishlist(true)}>
+                        <div className="cursor-pointer text-2xl bg-white dark:bg-black p-2 rounded-full active:scale-110 transition-all duration-150" onClick={() => setOpenWishlist(true)}>
                         <FaRegHeart/>
                         </div>
                         {wishlistCount > 0 && (
@@ -81,19 +81,19 @@ export default function Navbar() {
                          </div>
 
                          {(session?.user?.role === ROLE.ADMIN || user?.role === ROLE.ADMIN) &&
-                        <Link href='/admin/dashboard'><span className='cursor-pointer'><MdAdminPanelSettings className='bg-white dark:bg-black p-2 text-[40px] rounded-full' /></span>
+                        <Link href='/admin/dashboard'><span className='cursor-pointer'><MdAdminPanelSettings className='bg-white dark:bg-black p-2 text-[40px] rounded-full active:scale-110 transition-all duration-150' /></span>
                         </Link>
                     }
                     </div>
 
                     {(user || session) ? (
-                        <button className='bg-black dark:bg-zinc-50 dark:text-black-100 text-white rounded-[33px] py-3 px-5 font-bold text-lg' onClick={() => {logout(); signOut({ callbackUrl: '/login'});}}>Logout</button>
+                        <button className='bg-black dark:bg-zinc-50 dark:text-black-100 text-white rounded-[33px] py-3 px-5 font-bold text-lg active:scale-110 transition-all duration-150' onClick={() => {logout(); signOut({ callbackUrl: '/login'});}}>Logout</button>
 
                     )
                         :
                         (
                             <Link href='/login'>
-                                <button className='bg-black dark:bg-zinc-50 dark:text-black-100 text-white rounded-[33px] py-3 px-5 font-bold text-lg'>Get Started</button>
+                                <button className='bg-black dark:bg-zinc-50 dark:text-black-100 text-white rounded-[33px] py-3 px-5 font-bold text-lg active:scale-110 transition-all duration-150'>Get Started</button>
                             </Link>
                         )
                     }
@@ -130,7 +130,7 @@ export default function Navbar() {
 
                             <Link href='/admin/dashboard'>
                                 {(session?.user?.role === ROLE.ADMIN || user?.role === ROLE.ADMIN) &&
-                                    <span className='text-3xl cursor-pointer'><MdAdminPanelSettings /></span>}
+                                    <span className='text-3xl cursor-pointer active:scale-110 transition-all duration-150'><MdAdminPanelSettings /></span>}
                             </Link>
                         </div>
 
@@ -148,10 +148,16 @@ export default function Navbar() {
                     </div>
                 </div>
             </nav>
-
+               
+            <div
+            className={`fixed inset-0 z-[2000] transition-all duration-500 ease-in-out ${
+                openWishlist ? "opacity-100 visible translate-x-0 duration-500"
+            : "opacity-0 invisible lg:translate-x-16 duration-500"
+              }`}>
             {
                 openWishlist && <Wishlist callFunc={() => setOpenWishlist(false)} userId='user' />
             }
+            </div>
 
         </section>
     )
