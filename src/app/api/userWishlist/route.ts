@@ -21,7 +21,6 @@ export async function POST(req: NextRequest) {
     const cookieStore = cookies();
     let userId = token?.id ?? cookieStore.get("guestId")?.value;
 
-    // If no userId, generate and set a persistent guestId cookie
     if (!userId) {
       userId = uuidv4();
       cookieStore.set("guestId", userId, {
@@ -33,7 +32,6 @@ export async function POST(req: NextRequest) {
       
     }
 
-    // Parse and validate request body
     const body = await req.json();
     const { carName, carImage, price } = body;
 
@@ -44,7 +42,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Check if the item exists; if yes, remove it; otherwise, add it
     const existingItem = await wishlistModel.findOne({ userId, carName });
 
     if (existingItem) {
