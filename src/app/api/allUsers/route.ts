@@ -1,4 +1,3 @@
-// src/app/api/allUsers/route.ts
 import userModel from '@/server/models/userModel';
 import { connectDB } from '@/server/MongooseConnect';
 import { NextResponse } from 'next/server';
@@ -7,7 +6,6 @@ export async function GET() {
     try {
         await connectDB();
 
-        // Fetch users, excluding their passwords
         const users = await userModel.find().select('-password');
 
         return NextResponse.json({
