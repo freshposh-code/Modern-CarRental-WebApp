@@ -41,7 +41,7 @@ const serverErrorResponse = (error: any) => {
 
 const verifyToken = (token: string): DecodedToken | null => {
     try {
-        return jwt.verify(token, process.env.NEXT_PUBLIC_APP_TOKEN_SECRET_KEY as string) as DecodedToken;
+        return jwt.verify(token, process.env.APP_TOKEN_SECRET_KEY as string) as DecodedToken;
     } catch {
         return null;
     }

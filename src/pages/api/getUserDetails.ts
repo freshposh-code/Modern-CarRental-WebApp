@@ -16,7 +16,7 @@ const getUserDetails = async (req: NextApiRequest, res: NextApiResponse) => {
             });
         }
 
-        const decoded = jwt.verify(token, process.env.NEXT_PUBLIC_APP_TOKEN_SECRET_KEY as string) as { _id: string };
+        const decoded = jwt.verify(token, process.env.APP_TOKEN_SECRET_KEY as string) as { _id: string };
 
         const user = await UserModel.findById(decoded._id);
 

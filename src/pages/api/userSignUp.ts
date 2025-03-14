@@ -10,7 +10,6 @@ const userSignUpController = async (req: NextApiRequest, res: NextApiResponse) =
 
         const { email, password, name } = req.body;
 
-        // Validate incoming request body
         if (!email) throw new Error("Please provide email");
         if (!password) throw new Error("Please provide password");
         if (!name) throw new Error("Please provide name");
@@ -44,7 +43,6 @@ const userSignUpController = async (req: NextApiRequest, res: NextApiResponse) =
         const newUser = new UserModel(payload);
         const savedUser = await newUser.save();
 
-        // Return success response
         res.status(201).json({
             data: savedUser,
             success: true,
@@ -52,7 +50,6 @@ const userSignUpController = async (req: NextApiRequest, res: NextApiResponse) =
             message: "Account created successfully!",
         });
     } catch (err: any) {
-        // Return error response
         res.status(400).json({
             message: err.message || "Something went wrong",
             error: true,
