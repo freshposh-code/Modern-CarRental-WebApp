@@ -6,10 +6,13 @@ import DisplayLogo from "@/components/Client/DisplayLogo";
 import Footer from "@/components/Client/Footer";
 import HeroSection from "@/components/Client/HeroSection";
 import Journey from "@/components/Client/Journey";
+import Loader from "@/components/Client/Loader";
 import Navbar from "@/components/Client/Navbar";
 import PopularSection from "@/components/Client/PopularSection";
+import { useAppSelector } from "@/Redux/hooks";
 
 export default function Home() {
+      const isLoading = useAppSelector(store => store.loadingSlice);
   return (
     <>
       <div className="hero-gradient dark:bg-gradient-to-b from-[rgba(182,195,255,0.85)] via-[#5860a7] to-[#202754] contrast-200 lg:h-screen h-auto rounded-b-[35rem]">
@@ -30,6 +33,7 @@ export default function Home() {
         <Footer/>
         </div>
         <BookingButton />
+        {isLoading && <Loader />}
     </>
   )
 }
