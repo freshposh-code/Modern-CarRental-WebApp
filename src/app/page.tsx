@@ -15,12 +15,12 @@ export default function Home() {
       const isLoading = useAppSelector(store => store.loadingSlice);
   return (
     <>
-      <div className="hero-gradient dark:bg-gradient-to-b from-[rgba(182,195,255,0.85)] via-[#5860a7] to-[#202754] contrast-200 lg:h-screen h-auto rounded-b-[35rem]">
+      <div className="hero-gradient dark:bg-gradient-to-b from-[rgba(182,195,255,0.85)] via-[#5860a7] to-[#202754] contrast-200 lg:h-screen h-auto rounded-b-[35rem] ">
           <Navbar />
           <HeroSection />
 
       </div>
-      <div className="md:px-16 px-6 xl:mt-[10rem] mt-0">
+      <div className="md:px-16 px-6 xl:mt-[10rem] mt-0 relative">
           <DisplayLogo />
 
           <PopularSection category='popular' title='Our Popular Car' desc='Enjoy exclusive deals and the best prices for satisfying travel packages. We offer the best value for everyday adventure.' />
@@ -32,7 +32,9 @@ export default function Home() {
           <div className="mt-16">
         <Footer/>
         </div>
+        <div className="sticky bottom-5">
         <BookingButton />
+        </div>
         {isLoading && <Loader />}
     </>
   )
