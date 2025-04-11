@@ -14,11 +14,12 @@ export default function BookingButton() {
 
         <div className={`absolute bottom-0 right-3 cursor-pointer z-[2000] ${clickBookings ? 'hidden' : 'flex'}`}>
                 <div 
-                    className="bg-blue-600/65 text-white size-12 rounded-full text-2xl flex justify-center items-center active:scale-110 transition-all duration-150" 
+                    className="bg-blue-600/65 text-white size-12 rounded-full text-2xl flex justify-center items-center active:scale-110 transition-all duration-150 relative" 
                     onClick={() => setClickBookings((prev:any) => !prev)}
                 >
                     <IoCarSportSharp />
                 </div>
+                <span className="absolute top-1 left-1 bg-white text-black size-3 text-[10px] text-center rounded-full">{countBookings}</span>
             </div>
 
             <div
