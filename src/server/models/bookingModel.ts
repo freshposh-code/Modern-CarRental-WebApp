@@ -9,22 +9,30 @@ const BookingSchema = new mongoose.Schema(
     startDate: { type: Date, required: true },
     endDate: { type: Date, required: true },
     price: { type: Number, required: true },
+    
+    paymentStatus: {
+      type: String,
+      enum: ["Pending", "Paid", "Failed"],
+      default: "Pending",
+    },
+    transactionRef: { type: String, unique: true },
+
     status: {
       type: String,
       enum: [
-        'pending',      // Initial booking state
-        'confirmed',    // Booking approved
-        'in_progress',  // Car picked up
-        'completed',    // Car returned
-        'cancelled',    // Booking cancelled
-        'rejected'      // Booking denied
+        "pending",      
+        "confirmed",    
+        "in_progress",  
+        "completed",    
+        "cancelled",    
+        "rejected"      
       ],
-      default: 'pending'
+      default: "pending"
     },
     statusHistory: [{
       status: String,
       timestamp: { type: Date, default: Date.now },
-      updatedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+      updatedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
     }]
   },
   { timestamps: true }
