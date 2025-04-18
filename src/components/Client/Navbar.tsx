@@ -151,8 +151,8 @@ export default function Navbar() {
                
             <div
             className={`fixed inset-0 z-[2000] transition-all duration-500 ease-in-out ${
-                openWishlist ? "opacity-100 visible translate-x-0 duration-500"
-            : "opacity-0 invisible lg:translate-x-16 duration-500"
+                openWishlist ? "opacity-100 visible translate-y-0 duration-500"
+            : "opacity-0 invisible lg:translate-y-16 duration-500"
               }`}>
             {
                 openWishlist && <Wishlist callFunc={() => setOpenWishlist(false)} userId='user' />

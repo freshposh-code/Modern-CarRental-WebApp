@@ -19,7 +19,7 @@ export default function BookingButton() {
                 >
                     <IoCarSportSharp />
                 </div>
-                <span className="absolute top-1 left-1 bg-white text-black size-3 text-[10px] text-center rounded-full">{countBookings}</span>
+                <span className="absolute top-1 left-1 bg-zinc-100 dark:bg-zinc-900 dark:text-white text-black size-4 text-[12px] text-center font-extrabold rounded-full">{countBookings}</span>
             </div>
 
             <div
