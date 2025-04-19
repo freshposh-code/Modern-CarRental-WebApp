@@ -72,7 +72,12 @@ function AppContent({ Component, props, session, isLoading }: {
                 {isLoading && <Loader />}
                 {!hideComponents && <Footer />}
             </div>
-          {!hideComponents && <BookingButton />}
+          {!hideComponents && 
+          
+          <div className="sticky bottom-5">
+          <BookingButton />
+          </div>
+          }
         </>
     );
 }
