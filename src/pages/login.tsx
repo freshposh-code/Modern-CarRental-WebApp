@@ -25,8 +25,8 @@ interface FormData {
 }
 
 const login = () => {
-    const [passswordIcon, setPassswordIcon] = useState(false)
-    const [confirmPassswordIcon, setConfirmPassswordIcon] = useState(false)
+    const [passswordIcon, setPassswordIcon] = useState(false);
+    const [isGeneratingToken, setIsGeneratingToken] = useState(false);
 
     const [data, setData] = useState<FormData>({
         name: '',
@@ -79,17 +79,46 @@ const login = () => {
         }
     }
 
-    const { data: session } = useSession();
-  
-    useEffect(() => {
-      if (session) {
-        router.push('/'); 
-      }
-    }, [session, router]);
+    const { data: session, status } = useSession();
 
-    if (session) {
-        return <Loader />;
-      }
+    useEffect(() => {
+        if (session) {
+          router.push('/'); 
+        }
+      }, [session, router]);
+  
+      if (session) {
+          return <Loader />;
+        }
+
+    //   useEffect(() => {
+    //     const generateToken = async () => {
+    //         if (status === "authenticated" && session?.user && !isGeneratingToken) {
+    //             setIsGeneratingToken(true);
+                
+    //         try {
+    //           const response = await fetch("/api/auth/token");
+              
+    //           if (!response.ok) {
+    //             console.error("Failed to generate token:", await response.text());
+    //           } else {
+    //             console.log("JWT Token generated successfully");
+    //             router.push("/");
+    //           }
+    //         } catch (error) {
+    //           console.error("Error generating token:", error);
+    //         } finally {
+    //           setIsGeneratingToken(false);
+    //         }
+    //       }
+    //     };
+    
+    //     generateToken();
+    //   }, [session, status, router, isGeneratingToken]);
+    
+    //   const handleGoogleSignIn = () => {
+    //     signIn("google", { callbackUrl: window.location.origin });
+    //   };
 
     return (
         <AuroraBackground>
@@ -144,10 +173,10 @@ const login = () => {
                                 <div className="border-b-2 border-black-200 dark:border-white-200 w-32" />
                             </div>
 
-                            <span className="border-2 dark:border-slate-200 w-full flex justify-center items-center py-1 my-2 rounded-[22px] gap-1 cursor-pointer" onClick={() => signIn('google')}>
+                            <div className="border-2 dark:border-slate-200 w-full flex justify-center items-center py-1 my-2 rounded-[22px] gap-1 cursor-pointer" onClick={() => signIn('google')}>
                                 <FcGoogle className="text-4xl cursor-pointer" />
                                 <p className="text-blue-600 dark:text-blue-500 font-bold">Sign In using Google</p>
-                            </span>
+                            </div>
 
                             <p className="text-center text-sm my-2 font-semibold dark:text-slate-100">Don't have an account?
                                 <Link className="hover:text-blue-700 dark:hover:text-blue-500" href='/signup'> SignUp</Link>
@@ -157,7 +186,6 @@ const login = () => {
                 </BackgroundGradient>
             </motion.div >
         </AuroraBackground>
-        // xZ0curD5dOOJlC4q
     );
 }
 
