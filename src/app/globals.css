@@ -10,6 +10,18 @@
   box-sizing: border-box;
 }
 
+.abstract-img {
+  background-image: url('/AbstractI.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.abstract-imgII {
+  background-image: url('/AbstarctII.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 /* The entire scrollbar */
 ::-webkit-scrollbar {
   width: 6px;

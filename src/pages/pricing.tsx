@@ -8,24 +8,23 @@ const pricing = () => {
     <>
     <Navbar />
     <section className='flex-col flex sm:flex-row justify-center items-center sm:gap-10 gap-6 md:py-16 py-6 text-white max-w-full p-4 overflow-x-hidden'>
-      <div className="bg-blue-500 p-4 rounded-xl sm:w-[42.5rem] w-full transformS duration-200">
+
+      <div className="abstract-img p-4 rounded-xl sm:w-[42.5rem] w-full transformS duration-200">
         <h1 className='font-bold lg:text-3xl text-lg capitalize max-w-[350px] lg:leading-10 leading-6'>The best platform for car rental</h1>
         <p className='py-4 max-w-[300px] font-medium sm:text-base text-sm'>Ease of doing a car rental safely and reliably. Of course at alow price.</p>
         <button className='bg-blue-600 lg:px-6 px-4 lg:py-3 py-2 font-medium rounded-md sm:text-base text-sm'>Rental car</button>
         <div>
           <img src='/priceImg1.png' alt='car-img' className='w-[32rem] pl-36 object-contain' />
         </div>
-        {/* <Meteors number={30} /> */}
       </div>
 
-      <div className="bg-blue-600 p-4 rounded-xl sm:w-[42.5rem] w-full transformS duration-200 relative">
+      <div className="abstract-imgII p-4 rounded-xl sm:w-[42.5rem] w-full transformS duration-200 relative">
       <h1 className='font-bold lg:text-3xl text-lg max-w-[350px] lg:leading-10 leading-6'>Easy way to rent a car at low price.</h1>
         <p className='py-4 max-w-[280px] font-medium sm:text-base text-sm'>Providing cheap car rental services and safe and comfortable facilities.</p>
         <button className='bg-blue-500 lg:px-6 px-4 lg:py-3 py-2 font-medium rounded-md sm:text-base text-sm'>Rental car</button>
         <div>
         <img src='/priceImg1.png' alt='car-img' width={500} height={500} className='w-[32rem] pl-36 object-contain' />
         </div>
-        {/* <Meteors number={30} /> */}
       </div>
     </section>
 
