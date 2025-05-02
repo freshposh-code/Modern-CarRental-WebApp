@@ -4,19 +4,6 @@ import { useBookingContext } from '@/context/BookingContext';
 import { displayCurrency } from '@/utils/displayCurrency';
 import { IoBookSharp } from 'react-icons/io5';
 
-interface BOOKINGS {
-    _id: string;
-    userId: string;
-    carId: string;
-    carName: string;
-    carImg: string;
-    price: number;  
-    startDate: string;
-    endDate: string;
-    status: string;
-    statusHistory: string[];  
-}
-
 const page = () => {
 
     const {bookings, updateBookingStatus} = useBookingContext();
@@ -60,9 +47,9 @@ const page = () => {
 
                     <td className='p-3'>
                     {booking.paymentStatus === "Paid" ? (
-                  <span className="text-green-200 font-bold">Paid✅</span>
+                  <span className="text-green-400 dark:text-green-200 font-bold">Paid✅</span>
                 ) : (
-                  <span className="text-red-200 font-bold">Not Paid❌</span>
+                  <span className="text-red-400 dark:text-red-200 font-bold">Not Paid❌</span>
                 )}
                     </td>
 
