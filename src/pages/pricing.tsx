@@ -7,7 +7,7 @@ const pricing = () => {
   return (
     <>
     <Navbar />
-    <section className='flex-col flex sm:flex-row justify-center items-center sm:gap-10 gap-6 md:py-16 py-6 text-white max-w-full p-4 overflow-x-hidden'>
+    <section className='flex-col flex sm:flex-row justify-center items-center sm:gap-10 gap-6 md:py-16 py-6 sm:mt-10 mt-12 text-white max-w-full p-4 overflow-x-hidden'>
 
       <div className="abstract-img p-4 rounded-xl sm:w-[42.5rem] w-full transformS duration-200">
         <h1 className='font-bold lg:text-3xl text-lg capitalize max-w-[350px] lg:leading-10 leading-6'>The best platform for car rental</h1>

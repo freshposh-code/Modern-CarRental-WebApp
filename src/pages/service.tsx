@@ -11,7 +11,7 @@ const service = () => {
   return (
     <>
        <Navbar />
-    <section className='md:px-16 px-6 flex flex-col'>
+    <section className='md:px-16 px-6 mt-6 flex flex-col'>
       <div className="flex lg:flex-row flex-col items-center justify-center mt-10">
       <div>
         <p className='text-neutral-400 lg:text-sm text-xs font-semibold py-2 flex items-center'> <MdOutlineCarRepair /> 
