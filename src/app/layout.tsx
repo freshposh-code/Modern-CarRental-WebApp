@@ -31,15 +31,32 @@ export default function RootLayout({
         </ThemeProvider>
         </App>
       </SessionWrapper>
-        <ToastContainer
-          position="top-center"
-          toastStyle={{
-            backgroundColor: '#868686',
-            color: '#fff',
-            borderRadius: '22px',
-            fontSize: '14px',
-          }}
-        />
+      
+      <ToastContainer
+      position="top-left"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      style={{
+        width: 'auto',
+        maxWidth: '350px' 
+      }}
+      toastStyle={{
+        backgroundColor: '#868686',
+        color: '#fff',
+        borderRadius: '22px',
+        padding: '10px 15px',
+        boxShadow: '0 3px 10px rgba(0, 0, 0, 0.1)',
+        margin: '0 auto',
+        width: 'fit-content',
+        minWidth: '200px',  
+        maxWidth: '300px'  
+      }}
+    />
       </body>
     </html>
   );
