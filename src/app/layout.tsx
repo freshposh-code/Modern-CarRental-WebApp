@@ -43,7 +43,10 @@ export default function RootLayout({
       pauseOnHover
       style={{
         width: 'auto',
-        maxWidth: '350px' 
+        maxWidth: '350px', 
+        margin: '5px',
+        fontSize: '12px',
+        fontWeight: 'bold'
       }}
       toastStyle={{
         backgroundColor: '#868686',
