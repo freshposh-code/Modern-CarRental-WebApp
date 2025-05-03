@@ -10,8 +10,8 @@ const aboutUs = () => {
     <Navbar />
        {/*  SECTION I */}
        <BackgroundBeamsWithCollision className='flex-col'>
-    <section className='md:px-16 px-6 mt-6'>
-    <div className='flex lg:flex-row flex-col w-full items-center justify-between md:py-16 py-8'>
+    <section className='md:px-16 px-6'>
+    <div className='flex lg:flex-row flex-col w-full items-center justify-between md:py-16 py-9'>
          <div>
           <h1 className='lg:text-7xl md:text-4xl text-2xl font-bold lg:max-w-[1000px] w-full lg:py-7 py-3'>Search and find your best car rental with ease way</h1>
           <p className='lg:text-base xm:text-sm text-[10px] lg:max-w-[430px] w-full text-neutral-400 font-semibold'>Drive performance and cross functional collaboration with ease-to-use dashboards, data visualization, and automated insights in one click</p>
@@ -23,7 +23,7 @@ const aboutUs = () => {
          </div>
 
          <div>
-          <Image src='/iris.png' alt='pngIamge' width={1000} height={1000} className='max-w-full md:ml-40 ml-24' />
+          <Image src='/iris.png' alt='pngImage' width={1000} height={1000} className='max-w-full md:ml-40 ml-24' />
          </div>
     </div>
 

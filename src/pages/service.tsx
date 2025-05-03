@@ -11,22 +11,22 @@ const service = () => {
   return (
     <>
        <Navbar />
-    <section className='md:px-16 px-6 mt-6 flex flex-col'>
-      <div className="flex lg:flex-row flex-col items-center justify-center mt-10">
+    <section className='md:px-16 px-6 flex flex-col overflow-hidden'>
+      <div className="flex lg:flex-row flex-col items-center justify-center mt-11">
       <div>
         <p className='text-neutral-400 lg:text-sm text-xs font-semibold py-2 flex items-center'> <MdOutlineCarRepair /> 
         We have talented engineers & mechanics</p>
-        <h1 className='xl:text-6xl md:text-2xl text-lg font-bold lg:max-w-[1200px] w-full'>AUTO MAINTENANCE & REPAIR SERVICE</h1>
+        <h1 className='xl:text-7xl md:text-2xl text-xl font-bold lg:max-w-[1200px] w-full'>AUTO MAINTENANCE & REPAIR SERVICE</h1>
         <p className='text-neutral-400 lg:text-base xm:text-xs text-[10px] font-medium py-2'>Discover unparalleled services tailored to your unique needs</p>
-        <p className='md:text-base xm:text-xs text-[10px] lg:max-w-[630px] w-full text-neutral-400 font-medium'>We are committed to delivering excellence every step of the way. Let us help you achieve your goals with precision and care. Your satisfaction is our priority—let's create something extraordinary together!"</p>
+        <p className='md:text-base xm:text-xs text-[10px] lg:max-w-[630px] w-full text-neutral-400 font-semibold'>We are committed to delivering excellence every step of the way. Let us help you achieve your goals with precision and care. Your satisfaction is our priority—let's create something extraordinary together!"</p>
 
        <div className="flex items-center gap-7 lg:py-7 py-3 cursor-pointer">
         <button className='bg-blue-600 flex items-center gap-2 text-white md:px-6 px-2 md:py-3 py-2 md:text-base text-xs rounded-lg'>Talk to Us <FaPhoneAlt /></button>
            <p className='border-b-2 border-neutral-600 font-bold md:text-base text-xs'>Explore Our Services</p>
        </div>   
       </div>
-     <div>
-      <Image src='/taycan.png' alt='banner' width={1000} height={1000} className='max-w-full object-contain' />
+     <div className=''>
+      <Image src='/taycan.png' alt='banner' width={1000} height={1000} className='max-w-full object-contain md:ml-40 ml-24' />
      </div>
      </div>
 
