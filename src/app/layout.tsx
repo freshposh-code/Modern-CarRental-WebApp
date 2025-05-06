@@ -25,7 +25,6 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange
         >
           {children}
         </ThemeProvider>
@@ -34,7 +33,7 @@ export default function RootLayout({
       
       <ToastContainer
       position="top-left"
-      autoClose={5000}
+      autoClose={2000}
       hideProgressBar={false}
       newestOnTop
       rtl={false}
@@ -52,12 +51,6 @@ export default function RootLayout({
         backgroundColor: '#868686',
         color: '#fff',
         borderRadius: '22px',
-        padding: '10px 15px',
-        boxShadow: '0 3px 10px rgba(0, 0, 0, 0.1)',
-        margin: '0 auto',
-        width: 'fit-content',
-        minWidth: '200px',  
-        maxWidth: '300px'  
       }}
     />
       </body>

@@ -55,14 +55,13 @@ function AppContent({ Component, props, session, isLoading }: {
                         attribute="class"
                         defaultTheme="system"
                         enableSystem
-                        disableTransitionOnChange
                     >
                         <Component {...props} />
                     </ThemeProvider>
 
  <ToastContainer
     position="top-left"
-      autoClose={5000}
+      autoClose={2000}
       hideProgressBar={false}
       newestOnTop
       rtl={false}
@@ -80,12 +79,6 @@ function AppContent({ Component, props, session, isLoading }: {
         backgroundColor: '#868686',
         color: '#fff',
         borderRadius: '22px',
-        padding: '10px 15px',
-        boxShadow: '0 3px 10px rgba(0, 0, 0, 0.1)',
-        margin: '0 auto',
-        width: 'fit-content',
-        minWidth: '200px',  
-        maxWidth: '300px'  
       }}
     />
                 </SessionWrapper>
