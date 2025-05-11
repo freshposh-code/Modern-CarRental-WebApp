@@ -9,6 +9,7 @@ declare module 'next-auth' {
     user: {
       id: string;
       role: string;
+      email: string;
       createdAt?: string;
     };
   }
@@ -19,7 +20,7 @@ declare module 'next-auth' {
   }
 }
 
-export default NextAuth({
+export const authOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -29,7 +30,7 @@ export default NextAuth({
   adapter: MongoDBAdapter(clientPromise),
   secret: process.env.NEXT_PUBLIC_APP_NEXTAUTH_SECRET,
   callbacks: {
-    async signIn({ user, account }) {
+    async signIn({ user, account }: {user:any, account:any}) {
       if (account?.provider === 'google' && !user.role) {
         if (!user.createdAt) {
           user.createdAt = DateTime.now().toISO();
@@ -40,10 +41,15 @@ export default NextAuth({
       }
       return true;
     },
-    async session({ session, user }) {
-      session.user = { id: user.id, role: user.role || 'GENERAL',
+    async session({ session, user }: {session:any, user:any}) {
+      session.user = { 
+        id: user.id, 
+        role: user.role || 'GENERAL',
         createdAt: user.createdAt,
-       };
+        email: session.user.email,
+        name: session.user.name,
+        image: session.user.image
+      };
       return session;
     },
   },
@@ -52,4 +58,6 @@ export default NextAuth({
     signIn: '/auth/signIn',
     signOut: '/login',
   },
-});
+};
+
+export default NextAuth(authOptions);
