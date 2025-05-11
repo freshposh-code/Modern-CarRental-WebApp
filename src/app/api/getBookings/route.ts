@@ -1,8 +1,11 @@
 import { NextResponse } from "next/server";
 import { connectDB } from "@/server/MongooseConnect";
 import BookingModel from "@/server/models/bookingModel";
+import UserModel from "@/server/models/userModel";
 import { parse } from "cookie";
 import jwt, { JwtPayload } from "jsonwebtoken";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 interface DecodedToken extends JwtPayload {
     _id: string;
@@ -12,14 +15,54 @@ export async function GET(req: Request) {
     try {
         await connectDB();
 
-        const token = parse(req.headers.get("cookie") || "").token;
-        if (!token) return unauthorizedResponse();
+        let userId = null;
 
-        const decoded = verifyToken(token);
-        if (!decoded || !decoded._id) return invalidTokenResponse();
+        const session = await getServerSession(authOptions);
+        
+        if (session?.user?.id) {
+            userId = session.user.id;
+            console.log("Found user ID from session:", userId);
+        } 
+        else {
+            console.log("No session user ID, trying token");
+            const cookieHeader = req.headers.get("cookie") || "";
+            const cookies = parse(cookieHeader);
+            const token = cookies.token;
 
-        // Fetch bookings for the user
-        const bookings = await BookingModel.find({ userId: decoded._id }).sort({ startDate: -1 });
+            if (!token) {
+                return unauthorizedResponse();
+            }
+
+            try {
+                const decoded = verifyToken(token);
+                if (!decoded || !decoded._id) {
+                    return invalidTokenResponse();
+                }
+
+                userId = decoded._id;
+                console.log("Found user ID from token:", userId);
+            } catch (jwtError: any) {
+                if (jwtError.name === 'TokenExpiredError') {
+                    return unauthorizedResponse();
+                }
+                throw jwtError;
+            }
+        }
+
+        if (!userId) {
+            console.log("No user ID found from any authentication method");
+            return unauthorizedResponse();
+        }
+
+        const user = await UserModel.findById(userId);
+        if (!user) {
+            return NextResponse.json(
+                { message: "User not found", success: false }, 
+                { status: 404 }
+            );
+        }
+
+        const bookings = await BookingModel.find({ userId: user._id }).sort({ startDate: -1 });
 
         return NextResponse.json({ success: true, bookings });
 

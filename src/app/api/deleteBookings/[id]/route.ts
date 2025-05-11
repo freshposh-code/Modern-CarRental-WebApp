@@ -1,8 +1,11 @@
 import { NextResponse } from "next/server";
 import { connectDB } from "@/server/MongooseConnect";
 import BookingModel from "@/server/models/bookingModel";
+import UserModel from "@/server/models/userModel";
 import { parse } from "cookie";
 import jwt, { JwtPayload } from "jsonwebtoken";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 interface DecodedToken extends JwtPayload {
   _id: string;
@@ -15,14 +18,52 @@ export async function DELETE(
   try {
     await connectDB();
 
-    const cookieHeader = req.headers.get("cookie");
-    const cookies = cookieHeader ? parse(cookieHeader) : {};
-    const token = cookies.token;
+    let userId = null;
+    const session = await getServerSession(authOptions);
+    
+    if (session?.user?.id) {
+        userId = session.user.id;
+        console.log("Found user ID from session:", userId);
+    } 
+    else {
+        console.log("No session user ID, trying token");
+        const cookieHeader = req.headers.get("cookie") || "";
+        const cookies = parse(cookieHeader);
+        const token = cookies.token;
 
-    if (!token) return unauthorizedResponse();
+        if (!token) {
+            return unauthorizedResponse();
+        }
 
-    const decoded = verifyToken(token);
-    if (!decoded || !decoded._id) return invalidTokenResponse();
+        try {
+            const decoded = verifyToken(token);
+            if (!decoded || !decoded._id) {
+                return invalidTokenResponse();
+            }
+
+            userId = decoded._id;
+            console.log("Found user ID from token:", userId);
+        } catch (jwtError: any) {
+            console.error("JWT error:", jwtError.message);
+            if (jwtError.name === 'TokenExpiredError') {
+                return unauthorizedResponse();
+            }
+            throw jwtError;
+        }
+    }
+
+    if (!userId) {
+        console.log("No user ID found from any authentication method");
+        return unauthorizedResponse();
+    }
+
+    const user = await UserModel.findById(userId);
+    if (!user) {
+        return NextResponse.json(
+            { message: "User not found", success: false }, 
+            { status: 404 }
+        );
+    }
 
     const bookingId = params.id;
     if (!bookingId) {
@@ -34,7 +75,7 @@ export async function DELETE(
 
     const deletedBooking = await BookingModel.findOneAndDelete({
       _id: bookingId,
-      userId: decoded._id,
+      userId: user._id,
     });
 
     if (!deletedBooking) {

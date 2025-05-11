@@ -5,7 +5,7 @@ import { connectDB } from "@/server/MongooseConnect";
 import BookingModel from "@/server/models/bookingModel";
 import UserModel from "@/server/models/userModel";
 import { getServerSession } from "next-auth";
-import Nextauth from "@/pages/api/auth/[...nextauth]"; 
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 export async function POST(req: Request) {
   try {
@@ -13,11 +13,14 @@ export async function POST(req: Request) {
 
     let userId = null;
 
-    const session = await getServerSession();
+    const session = await getServerSession(authOptions);
+    
     if (session?.user?.id) {
       userId = session.user.id;
+      console.log("Found user ID from session:", userId);
     } 
     else {
+      console.log("No session user ID, trying token"); 
       const cookieHeader = req.headers.get("cookie") || "";
       const cookies = parse(cookieHeader);
       const token = cookies.token;
@@ -43,6 +46,7 @@ export async function POST(req: Request) {
         }
 
         userId = decoded._id;
+        console.log("Found user ID from token:", userId);
       } catch (jwtError: any) {
         if (jwtError.name === 'TokenExpiredError') {
           return NextResponse.json(
@@ -55,6 +59,7 @@ export async function POST(req: Request) {
     }
 
     if (!userId) {
+      console.log("No user ID found from any authentication method");
       return NextResponse.json(
         { message: "Unauthorized. Please login!", success: false }, 
         { status: 401 }
@@ -88,7 +93,7 @@ export async function POST(req: Request) {
     }
     const parsedStartDate = new Date(startDate);
 
-     const parsedEndDate = new Date(parsedStartDate.getTime() + 24 * 60 * 60 * 1000);
+    const parsedEndDate = new Date(parsedStartDate.getTime() + 24 * 60 * 60 * 1000);
 
     const newBooking = new BookingModel({
       userId: user._id,
