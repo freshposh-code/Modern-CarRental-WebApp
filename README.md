@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1 className='text-3xl'>Overview</h1>
 
-## Getting Started
+Rivent is a full-featured car rental web application that allows users to browse and book cars, manage bookings, and create wishlists. The platform includes:
 
-First, run the development server:
+✅ User authentication (Sign up, Sign in, protected routes)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+📅 Car booking system with start and end dates
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+💳 Integrated payment system (Flutterwave - Test Mode)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+❤️ Wishlist functionality
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🛠️ Admin dashboard with full CRUD operations
 
-## Learn More
+🔐 Role-based access control (Admin/User)
 
-To learn more about Next.js, take a look at the following resources:
+![Rivent Preview](public/preview.jpg)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<h1 className='text-3xl'>Tech Stack</h1>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Frontend: Next. js, TypeScript, Tailwind CSS
 
-## Deploy on Vercel
+Backend: Node.js,( Next.js API routes)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Database: MongoDB with Mongoose
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Auth: JWT and NextAuth
+
+Payment: Flutterwave
+
+Deployment: Vercel
