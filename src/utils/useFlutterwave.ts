@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { useUserContext } from "@/context/UserContext";
+import { useSession } from "next-auth/react";
 
 declare global {
   interface Window {
@@ -9,7 +10,7 @@ declare global {
 }
 
 interface PaymentProps {
-  email: string;
+  email: string | any;
   tx_ref: string;
   amount: number;
   onSuccess: () => void;
@@ -19,6 +20,7 @@ interface PaymentProps {
 const useFlutterWave = () => {
   const [isFlutterwaveLoaded, setIsFlutterwaveLoaded] = useState(false);
   const { user } = useUserContext();
+  const { data: session } = useSession();  
 
   useEffect(() => {
     if (document.querySelector('script[src="https://checkout.flutterwave.com/v3.js"]')) {
@@ -54,6 +56,13 @@ const useFlutterWave = () => {
       return;
     }
 
+    const customerEmail = email || user?.email || session?.user?.email;
+    
+    if (!customerEmail) {
+      toast.error("User email is required for payment");
+      return;
+    }
+
     try {
       window.FlutterwaveCheckout({
         public_key: process.env.NEXT_PUBLIC_FLUTTERWAVE_PUBLIC_KEY || "",
@@ -62,7 +71,7 @@ const useFlutterWave = () => {
         currency: "USD",
         payment_options: "card, banktransfer, ussd",
         customer: {
-          email: user?.email || email,
+          email: customerEmail,
         },
         customizations: {
           title: "Car Rental Payment",
