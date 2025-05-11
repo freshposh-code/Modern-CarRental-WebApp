@@ -2,6 +2,7 @@ import { GetBookings, useBookingContext } from "@/context/BookingContext";
 import { useUserContext } from "@/context/UserContext";
 import { displayCurrency } from "@/utils/displayCurrency";
 import useFlutterWave from "@/utils/useFlutterwave";
+import { useSession } from "next-auth/react";
 import React, { SetStateAction } from "react";
 import { MdCancel } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
@@ -45,14 +46,23 @@ const ShowBookings = ({ setState, data, countBookings, item, setSelectedItem}: {
 
     const transactionRef = `BOOK-${Date.now()}-${Math.random().toString(36).substring(2, 15)}`;
 
+    const { data: session } = useSession();
+
   const handlePayment = () => {
     if (!user?.email) {
       toast.error("User email is required for payment.");
       return;
     }
 
+    const userEmail = session?.user?.email || user?.email;
+  
+    if (!userEmail) {
+      toast.error("User email is required for payment.");
+      return;
+    }
+
     initiateFlutterWavePayment({
-      email: user.email,
+      email: userEmail,
       tx_ref: transactionRef,
       amount: totalBookingsPrice,
       onSuccess: () => {

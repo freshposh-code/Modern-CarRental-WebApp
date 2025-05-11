@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import useFlutterWave from "../utils/useFlutterwave";
 import { useUserContext } from "./UserContext";
+import { useSession } from "next-auth/react";
 
 export type Item = {
   _id: string;
@@ -61,6 +62,8 @@ export const BookingProvider = ({ children }: { children: React.ReactNode }) => 
 
     const transactionRef = `TRX-${Date.now()}-${Math.floor(Math.random() * 1000000)}`;
 
+      const { data: session } = useSession();
+
   const handleBooking = async (data: Item) => {
     try {
 
@@ -87,6 +90,13 @@ export const BookingProvider = ({ children }: { children: React.ReactNode }) => 
         toast.success("Car booked successfully!");
 
         setBookings((prev) => [...prev, dataApi.booking]);
+
+        const userEmail = session?.user?.email || user?.email;
+          
+            if (!userEmail) {
+              toast.error("User email is required for payment.");
+              return;
+            }
 
 
         initiateFlutterWavePayment({
