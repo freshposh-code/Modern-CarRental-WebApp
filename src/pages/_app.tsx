@@ -22,6 +22,7 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     
     return (
         <>
+          <SessionWrapper session={session}>
             <UserProvider>
                 <WishlistProvider>
                     <BookingProvider>
@@ -34,6 +35,7 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
                     </BookingProvider>
                 </WishlistProvider>
             </UserProvider>
+            </SessionWrapper>
         </>
     );
 }
@@ -50,7 +52,7 @@ function AppContent({ Component, props, session, isLoading }: {
     return (
         <>
             <div className="bg-zinc-100 dark:bg-zinc-900">
-                <SessionWrapper session={session}>
+              
                     <ThemeProvider
                         attribute="class"
                         defaultTheme="system"
@@ -80,8 +82,7 @@ function AppContent({ Component, props, session, isLoading }: {
         color: '#fff',
         borderRadius: '22px',
       }}
-    />
-                </SessionWrapper>
+    /> 
                 {isLoading && <Loader />}
                 {!hideComponents && <Footer />}
             </div>
