@@ -48,7 +48,7 @@ export function AnimatedModalDemo({data, carItems}: {data: CategoryData; carItem
               <span className="bg-black-200 dark:bg-white-200 p-1 text-white dark:text-black rounded-xl">
                 Adventures
               </span>{" "}
-              awaits! ✈️
+              awaits! 🌍
             </h4>
             <div className="flex justify-center items-center">
               {data?.carImage.map((image, idx) => (
@@ -87,12 +87,12 @@ export function AnimatedModalDemo({data, carItems}: {data: CategoryData; carItem
               </div>
               <div className="flex items-center justify-center">           
                 <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-                  5 connecting flights
+                  5 seamless transitions
                 </span>
               </div>
               <div className="flex items-center justify-center">            
                 <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-                  69 visiting spots
+                  69 destinations await
                 </span>
               </div>
             </div>
@@ -103,7 +103,7 @@ export function AnimatedModalDemo({data, carItems}: {data: CategoryData; carItem
           </ModalContent>
           
           <ModalFooter className="gap-4">
-            <button className="bg-black text-white dark:bg-white dark:text-black text-sm md:px-2 px-1 md:py-2 py-1 rounded-md border border-black hover:scale-75" 
+            <button className="bg-black text-white dark:bg-white dark:text-black text-sm md:px-2 px-1 md:py-2 py-1 rounded-md border border-black active:scale-125" 
               onClick={handleBookingClick}>
               Book Now
             </button>

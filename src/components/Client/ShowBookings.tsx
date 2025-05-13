@@ -91,6 +91,11 @@ const ShowBookings = ({ setState, data, countBookings, item, setSelectedItem}: {
       >
         <div className="p-4 flex justify-between items-center">
           <h2 className="text-lg font-semibold">Bookings ({countBookings})</h2>
+
+          <div className="p-2 py-1 md:hidden flex">
+              <p className="font-semibold text-sm">(Total: {displayCurrency(totalBookingsPrice)})</p>
+          </div>
+
           <div
             onClick={() => setState(false)}><MdCancel /></div>
         </div>
@@ -122,8 +127,8 @@ const ShowBookings = ({ setState, data, countBookings, item, setSelectedItem}: {
                 </div>
             ))}
             </div>
-            <div className="p-2 py-1">
-              <p className="float-right font-semibold">Bookings Total: {displayCurrency(totalBookingsPrice)}</p>
+            <div className="p-2 py-1 md:flex hidden relative">
+              <p className="absolute right-2 font-semibold">Bookings Total: {displayCurrency(totalBookingsPrice)}</p>
           </div>
             </div>
             
