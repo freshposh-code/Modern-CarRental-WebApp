@@ -15,6 +15,7 @@ import { WishlistProvider } from "@/context/WishlistContext";
 import { BookingProvider } from "@/context/BookingContext";
 import BookingButton from "@/components/Client/BookingButton";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     const { props } = wrapper.useWrappedStore(pageProps);
@@ -51,6 +52,12 @@ function AppContent({ Component, props, session, isLoading }: {
     const hideComponents = ["/login", "/signup"].includes(router.pathname);
     return (
         <>
+         <Head>
+        <link 
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" 
+          rel="stylesheet" 
+        />
+        </Head>
             <div className="bg-zinc-100 dark:bg-zinc-900">
               
                     <ThemeProvider

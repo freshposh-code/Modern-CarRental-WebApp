@@ -18,7 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-zinc-100 dark:bg-zinc-900">
+      <head>
+        <link 
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" 
+          rel="stylesheet" 
+        />
+      </head>
+      <body className="font-roboto bg-zinc-100 dark:bg-zinc-900">
       <SessionWrapper>
         <App>
         <ThemeProvider
